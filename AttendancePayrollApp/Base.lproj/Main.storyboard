@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-bt-o1H">
-                                <rect key="frame" x="117.5" y="244" width="139" height="30"/>
+                                <rect key="frame" x="117.5" y="607" width="139" height="30"/>
                                 <state key="normal" title="Sign up as employer"/>
                                 <connections>
                                     <segue destination="l0v-Wn-Ymp" kind="show" id="Fko-nN-2oh"/>
@@ -57,10 +57,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gi3-bt-o1H" firstAttribute="top" secondItem="e1W-n8-oI2" secondAttribute="bottom" constant="60" id="9Si-Hp-pdc"/>
+                            <constraint firstItem="Ee7-a8-yZx" firstAttribute="bottom" secondItem="gi3-bt-o1H" secondAttribute="bottom" constant="30" id="0Gw-4q-2H1"/>
+                            <constraint firstItem="gi3-bt-o1H" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="Aiq-HS-ZPe"/>
                             <constraint firstItem="e1W-n8-oI2" firstAttribute="top" secondItem="v0Z-jb-4CV" secondAttribute="bottom" constant="30" id="SJt-NP-3F9"/>
                             <constraint firstItem="v0Z-jb-4CV" firstAttribute="top" secondItem="Ee7-a8-yZx" secondAttribute="top" constant="30" id="cbW-l0-P2O"/>
-                            <constraint firstItem="gi3-bt-o1H" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="mMS-yt-2rm"/>
                             <constraint firstItem="v0Z-jb-4CV" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="v1a-Oe-NxW"/>
                             <constraint firstItem="e1W-n8-oI2" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="zU7-qL-rDd"/>
                         </constraints>
