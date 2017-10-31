@@ -1,0 +1,342 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D314EABF1FA88B2E003107EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314EABE1FA88B2E003107EB /* AppDelegate.swift */; };
+		D314EAC11FA88B2E003107EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314EAC01FA88B2E003107EB /* ViewController.swift */; };
+		D314EAC41FA88B2E003107EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314EAC21FA88B2E003107EB /* Main.storyboard */; };
+		D314EAC71FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D314EAC51FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld */; };
+		D314EAC91FA88B2E003107EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D314EAC81FA88B2E003107EB /* Assets.xcassets */; };
+		D314EACC1FA88B2E003107EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314EACA1FA88B2E003107EB /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D314EABB1FA88B2E003107EB /* AttendancePayrollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendancePayrollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D314EABE1FA88B2E003107EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D314EAC01FA88B2E003107EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D314EAC31FA88B2E003107EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D314EAC61FA88B2E003107EB /* AttendancePayrollApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AttendancePayrollApp.xcdatamodel; sourceTree = "<group>"; };
+		D314EAC81FA88B2E003107EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D314EACB1FA88B2E003107EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D314EACD1FA88B2E003107EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D314EAB81FA88B2E003107EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D314EAB21FA88B2E003107EB = {
+			isa = PBXGroup;
+			children = (
+				D314EABD1FA88B2E003107EB /* AttendancePayrollApp */,
+				D314EABC1FA88B2E003107EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D314EABC1FA88B2E003107EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D314EABB1FA88B2E003107EB /* AttendancePayrollApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D314EABD1FA88B2E003107EB /* AttendancePayrollApp */ = {
+			isa = PBXGroup;
+			children = (
+				D314EABE1FA88B2E003107EB /* AppDelegate.swift */,
+				D314EAC01FA88B2E003107EB /* ViewController.swift */,
+				D314EAC21FA88B2E003107EB /* Main.storyboard */,
+				D314EAC81FA88B2E003107EB /* Assets.xcassets */,
+				D314EACA1FA88B2E003107EB /* LaunchScreen.storyboard */,
+				D314EACD1FA88B2E003107EB /* Info.plist */,
+				D314EAC51FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld */,
+			);
+			path = AttendancePayrollApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D314EABA1FA88B2E003107EB /* AttendancePayrollApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D314EAD01FA88B2E003107EB /* Build configuration list for PBXNativeTarget "AttendancePayrollApp" */;
+			buildPhases = (
+				D314EAB71FA88B2E003107EB /* Sources */,
+				D314EAB81FA88B2E003107EB /* Frameworks */,
+				D314EAB91FA88B2E003107EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AttendancePayrollApp;
+			productName = AttendancePayrollApp;
+			productReference = D314EABB1FA88B2E003107EB /* AttendancePayrollApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D314EAB31FA88B2E003107EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Tal Zemah";
+				TargetAttributes = {
+					D314EABA1FA88B2E003107EB = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D314EAB61FA88B2E003107EB /* Build configuration list for PBXProject "AttendancePayrollApp" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D314EAB21FA88B2E003107EB;
+			productRefGroup = D314EABC1FA88B2E003107EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D314EABA1FA88B2E003107EB /* AttendancePayrollApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D314EAB91FA88B2E003107EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D314EACC1FA88B2E003107EB /* LaunchScreen.storyboard in Resources */,
+				D314EAC91FA88B2E003107EB /* Assets.xcassets in Resources */,
+				D314EAC41FA88B2E003107EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D314EAB71FA88B2E003107EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D314EAC11FA88B2E003107EB /* ViewController.swift in Sources */,
+				D314EABF1FA88B2E003107EB /* AppDelegate.swift in Sources */,
+				D314EAC71FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D314EAC21FA88B2E003107EB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D314EAC31FA88B2E003107EB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D314EACA1FA88B2E003107EB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D314EACB1FA88B2E003107EB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D314EACE1FA88B2E003107EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D314EACF1FA88B2E003107EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D314EAD11FA88B2E003107EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AttendancePayrollApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TZ.AttendancePayrollApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D314EAD21FA88B2E003107EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AttendancePayrollApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TZ.AttendancePayrollApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D314EAB61FA88B2E003107EB /* Build configuration list for PBXProject "AttendancePayrollApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D314EACE1FA88B2E003107EB /* Debug */,
+				D314EACF1FA88B2E003107EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D314EAD01FA88B2E003107EB /* Build configuration list for PBXNativeTarget "AttendancePayrollApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D314EAD11FA88B2E003107EB /* Debug */,
+				D314EAD21FA88B2E003107EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D314EAC51FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D314EAC61FA88B2E003107EB /* AttendancePayrollApp.xcdatamodel */,
+			);
+			currentVersion = D314EAC61FA88B2E003107EB /* AttendancePayrollApp.xcdatamodel */;
+			path = AttendancePayrollApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D314EAB31FA88B2E003107EB /* Project object */;
+}
