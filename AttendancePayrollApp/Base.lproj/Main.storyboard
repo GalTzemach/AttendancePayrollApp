@@ -1,24 +1,382 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jT4-d1-Ehq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="mxR-X4-4pg">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="jT4-d1-Ehq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tsh-L4-epe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qLo-lA-QQN" kind="relationship" relationship="rootViewController" id="YKw-yY-dYG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U1t-Cb-7JO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-348" y="90"/>
+        </scene>
+        <!--Sign up-->
+        <scene sceneID="ouD-tb-I0x">
+            <objects>
+                <viewController title="Sign up" id="qLo-lA-QQN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ctz-aK-ocs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0Z-jb-4CV">
+                                <rect key="frame" x="130.5" y="94" width="113" height="30"/>
+                                <state key="normal" title="Employer sign in"/>
+                                <connections>
+                                    <segue destination="lmV-FV-wzv" kind="show" id="6xj-k5-o4g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1W-n8-oI2">
+                                <rect key="frame" x="138" y="154" width="98" height="30"/>
+                                <state key="normal" title="Worker sign in"/>
+                                <connections>
+                                    <segue destination="UVj-Ox-wme" kind="show" id="cka-Nu-8AK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-bt-o1H">
+                                <rect key="frame" x="117.5" y="244" width="139" height="30"/>
+                                <state key="normal" title="Sign up as employer"/>
+                                <connections>
+                                    <segue destination="l0v-Wn-Ymp" kind="show" id="Fko-nN-2oh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gi3-bt-o1H" firstAttribute="top" secondItem="e1W-n8-oI2" secondAttribute="bottom" constant="60" id="9Si-Hp-pdc"/>
+                            <constraint firstItem="e1W-n8-oI2" firstAttribute="top" secondItem="v0Z-jb-4CV" secondAttribute="bottom" constant="30" id="SJt-NP-3F9"/>
+                            <constraint firstItem="v0Z-jb-4CV" firstAttribute="top" secondItem="Ee7-a8-yZx" secondAttribute="top" constant="30" id="cbW-l0-P2O"/>
+                            <constraint firstItem="gi3-bt-o1H" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="mMS-yt-2rm"/>
+                            <constraint firstItem="v0Z-jb-4CV" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="v1a-Oe-NxW"/>
+                            <constraint firstItem="e1W-n8-oI2" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="zU7-qL-rDd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ee7-a8-yZx"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="Y7s-E1-cWS"/>
+                    <connections>
+                        <segue destination="lmV-FV-wzv" kind="show" id="d77-1I-YMq"/>
+                        <segue destination="l0v-Wn-Ymp" kind="show" id="W4j-Oz-6O1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8N2-HX-GFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="90"/>
+        </scene>
+        <!--Sign up-->
+        <scene sceneID="ymt-Z3-Xvt">
+            <objects>
+                <viewController title="Sign up" id="l0v-Wn-Ymp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gdO-Wl-Rjd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0a-AD-iBF">
+                                <rect key="frame" x="161" y="607" width="52" height="30"/>
+                                <state key="normal" title="Sign up"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="746-27-wNA" firstAttribute="bottom" secondItem="G0a-AD-iBF" secondAttribute="bottom" constant="30" id="Gsh-wL-gCO"/>
+                            <constraint firstItem="G0a-AD-iBF" firstAttribute="centerX" secondItem="gdO-Wl-Rjd" secondAttribute="centerX" id="mhu-11-JA0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="746-27-wNA"/>
+                    </view>
+                    <connections>
+                        <segue destination="UVj-Ox-wme" kind="show" id="pxP-7N-CIg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8zA-3g-dcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="796"/>
+        </scene>
+        <!--Worker menu-->
+        <scene sceneID="TAI-y4-15i">
+            <objects>
+                <viewController title="Worker menu" id="UVj-Ox-wme" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KWB-rc-Re2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naJ-fj-mJc">
+                                <rect key="frame" x="148" y="94" width="79" height="30"/>
+                                <state key="normal" title="Start / Stop"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZW-KV-Dlk">
+                                <rect key="frame" x="139" y="324" width="97" height="30"/>
+                                <state key="normal" title="Payroll history"/>
+                                <connections>
+                                    <segue destination="4k3-hZ-9Zf" kind="show" id="208-RJ-qaR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I64-RV-Mzn">
+                                <rect key="frame" x="126" y="384" width="122" height="30"/>
+                                <state key="normal" title="Current paycheck"/>
+                                <connections>
+                                    <segue destination="6Sl-9k-MpN" kind="show" id="km4-Zg-7ha"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-3X-kPo">
+                                <rect key="frame" x="161.5" y="607" width="52" height="30"/>
+                                <state key="normal" title="Log out"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZZW-KV-Dlk" firstAttribute="centerX" secondItem="KWB-rc-Re2" secondAttribute="centerX" id="1hA-KV-zyu"/>
+                            <constraint firstItem="FeV-3X-kPo" firstAttribute="centerX" secondItem="KWB-rc-Re2" secondAttribute="centerX" id="39S-rV-Ahf"/>
+                            <constraint firstItem="ZZW-KV-Dlk" firstAttribute="top" secondItem="naJ-fj-mJc" secondAttribute="bottom" constant="200" id="REI-lV-qCa"/>
+                            <constraint firstItem="1eF-Ev-bQ6" firstAttribute="bottom" secondItem="FeV-3X-kPo" secondAttribute="bottom" constant="30" id="WJ4-3U-3uF"/>
+                            <constraint firstItem="naJ-fj-mJc" firstAttribute="top" secondItem="1eF-Ev-bQ6" secondAttribute="top" constant="30" id="XtV-En-gYE"/>
+                            <constraint firstItem="naJ-fj-mJc" firstAttribute="centerX" secondItem="KWB-rc-Re2" secondAttribute="centerX" id="j8w-Z2-ZVr"/>
+                            <constraint firstItem="I64-RV-Mzn" firstAttribute="top" secondItem="ZZW-KV-Dlk" secondAttribute="bottom" constant="30" id="wUp-GI-Zn0"/>
+                            <constraint firstItem="I64-RV-Mzn" firstAttribute="centerX" secondItem="KWB-rc-Re2" secondAttribute="centerX" id="yJ0-RL-FYv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1eF-Ev-bQ6"/>
+                    </view>
+                    <connections>
+                        <segue destination="4k3-hZ-9Zf" kind="show" id="qD2-PQ-xkL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8d-5r-WuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124" y="796"/>
+        </scene>
+        <!--Employer menu-->
+        <scene sceneID="5iY-bc-XWz">
+            <objects>
+                <viewController title="Employer menu" id="lmV-FV-wzv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4AD-JM-YUQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-Ee-r9O">
+                                <rect key="frame" x="148" y="94" width="78" height="30"/>
+                                <state key="normal" title="Add worker"/>
+                                <connections>
+                                    <segue destination="XR6-Zg-Djb" kind="show" id="Gkt-lV-QHK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q7-Sr-TXX">
+                                <rect key="frame" x="138.5" y="153" width="97" height="30"/>
+                                <state key="normal" title="Payroll history"/>
+                                <connections>
+                                    <segue destination="RWC-2f-7Gn" kind="show" id="ctx-6r-49V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2O-C5-IAi">
+                                <rect key="frame" x="117.5" y="213" width="139" height="30"/>
+                                <state key="normal" title="Unconfirmed payroll"/>
+                                <connections>
+                                    <segue destination="cPT-Vz-Ko2" kind="show" id="Z9k-Eb-BbP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDe-dK-D6G">
+                                <rect key="frame" x="161" y="607" width="52" height="30"/>
+                                <state key="normal" title="Log out"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R2O-C5-IAi" firstAttribute="top" secondItem="8q7-Sr-TXX" secondAttribute="bottom" constant="30" id="AKo-Xb-Ozy"/>
+                            <constraint firstItem="8q7-Sr-TXX" firstAttribute="top" secondItem="hYg-Ee-r9O" secondAttribute="bottom" constant="29" id="G1D-E4-uom"/>
+                            <constraint firstItem="hYg-Ee-r9O" firstAttribute="top" secondItem="wn6-Xu-BPD" secondAttribute="top" constant="30" id="MyZ-zs-QYN"/>
+                            <constraint firstItem="8q7-Sr-TXX" firstAttribute="centerX" secondItem="4AD-JM-YUQ" secondAttribute="centerX" id="PmR-4v-SwT"/>
+                            <constraint firstItem="R2O-C5-IAi" firstAttribute="centerX" secondItem="4AD-JM-YUQ" secondAttribute="centerX" id="XEU-q8-Ie1"/>
+                            <constraint firstItem="wn6-Xu-BPD" firstAttribute="bottom" secondItem="UDe-dK-D6G" secondAttribute="bottom" constant="30" id="hQz-87-sLh"/>
+                            <constraint firstItem="hYg-Ee-r9O" firstAttribute="centerX" secondItem="4AD-JM-YUQ" secondAttribute="centerX" id="u9C-Qu-w6e"/>
+                            <constraint firstItem="UDe-dK-D6G" firstAttribute="centerX" secondItem="4AD-JM-YUQ" secondAttribute="centerX" id="uKT-qi-l1z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wn6-Xu-BPD"/>
+                    </view>
+                    <connections>
+                        <segue destination="XR6-Zg-Djb" kind="show" id="zx9-x2-mz8"/>
+                        <segue destination="RWC-2f-7Gn" kind="show" id="rzi-eD-RYm"/>
+                        <segue destination="cPT-Vz-Ko2" kind="show" id="Cum-vc-HH5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggM-mC-S5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124" y="90"/>
+        </scene>
+        <!--Add worker-->
+        <scene sceneID="FQ2-ju-O9V">
+            <objects>
+                <viewController title="Add worker" id="XR6-Zg-Djb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bV2-TD-TP5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd7-eo-PyC">
+                                <rect key="frame" x="137.5" y="607" width="99" height="30"/>
+                                <state key="normal" title="Create Worker"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WDb-Ks-0da" firstAttribute="bottom" secondItem="yd7-eo-PyC" secondAttribute="bottom" constant="30" id="hoD-bd-Q6y"/>
+                            <constraint firstItem="yd7-eo-PyC" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="rPG-6v-Vaw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WDb-Ks-0da"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g99-3q-OAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1858" y="90"/>
+        </scene>
+        <!--Name payroll history-->
+        <scene sceneID="fNz-l6-Tkx">
+            <objects>
+                <viewController title="Name payroll history" id="4k3-hZ-9Zf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="54V-zZ-rZG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EX-Y4-Den">
+                                <rect key="frame" x="156" y="94" width="62" height="30"/>
+                                <state key="normal" title="10 / 2017"/>
+                                <connections>
+                                    <segue destination="6Sl-9k-MpN" kind="show" id="svv-0a-Fhh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2EX-Y4-Den" firstAttribute="top" secondItem="c4q-B1-omx" secondAttribute="top" constant="30" id="ddo-l4-hh0"/>
+                            <constraint firstItem="2EX-Y4-Den" firstAttribute="centerX" secondItem="54V-zZ-rZG" secondAttribute="centerX" id="vev-yb-2yY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c4q-B1-omx"/>
+                    </view>
+                    <connections>
+                        <segue destination="6Sl-9k-MpN" kind="show" id="ltv-Fo-ObO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QPg-Df-nE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2604" y="501"/>
+        </scene>
+        <!--Date paycheck-->
+        <scene sceneID="9bd-Zi-7kS">
+            <objects>
+                <viewController title="Date paycheck" id="6Sl-9k-MpN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wDy-eV-nNO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtq-nA-kiZ">
+                                <rect key="frame" x="172" y="607" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8zk-bN-3oU" firstAttribute="bottom" secondItem="Wtq-nA-kiZ" secondAttribute="bottom" constant="30" id="6pu-1b-uBc"/>
+                            <constraint firstItem="Wtq-nA-kiZ" firstAttribute="centerX" secondItem="wDy-eV-nNO" secondAttribute="centerX" id="N40-ag-Dqq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8zk-bN-3oU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v38-AI-t9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3343" y="501"/>
+        </scene>
+        <!--Payroll history-->
+        <scene sceneID="w3O-1B-Za7">
+            <objects>
+                <viewController title="Payroll history" id="RWC-2f-7Gn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f2y-Bw-4b3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-jX-pQ4">
+                                <rect key="frame" x="126" y="94" width="122" height="30"/>
+                                <state key="normal" title="Worker example 1"/>
+                                <connections>
+                                    <segue destination="4k3-hZ-9Zf" kind="show" id="nYj-FH-lZp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4bW-jX-pQ4" firstAttribute="top" secondItem="r5Q-I5-925" secondAttribute="top" constant="30" id="X5C-Hd-DNp"/>
+                            <constraint firstItem="4bW-jX-pQ4" firstAttribute="centerX" secondItem="f2y-Bw-4b3" secondAttribute="centerX" id="py1-sQ-I4u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r5Q-I5-925"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9c-5H-KVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4092" y="90"/>
+        </scene>
+        <!--Unconfirmed payroll-->
+        <scene sceneID="1In-Fx-B0e">
+            <objects>
+                <viewController title="Unconfirmed payroll" id="cPT-Vz-Ko2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="10x-dG-jcT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azt-eq-f1b">
+                                <rect key="frame" x="126" y="94" width="122" height="30"/>
+                                <state key="normal" title="Worker example 1"/>
+                                <connections>
+                                    <segue destination="6Sl-9k-MpN" kind="show" id="ZlG-1x-Lyk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0F-I0-wob">
+                                <rect key="frame" x="268" y="94" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf0-ec-u7v">
+                                <rect key="frame" x="125" y="154" width="124" height="30"/>
+                                <state key="normal" title="Worker example 2"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mM9-Dx-nDc">
+                                <rect key="frame" x="269" y="154" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m0F-I0-wob" firstAttribute="leading" secondItem="azt-eq-f1b" secondAttribute="trailing" constant="20" id="7QU-D3-Wqk"/>
+                            <constraint firstItem="jf0-ec-u7v" firstAttribute="top" secondItem="azt-eq-f1b" secondAttribute="bottom" constant="30" id="96P-ae-Yoj"/>
+                            <constraint firstItem="mM9-Dx-nDc" firstAttribute="leading" secondItem="jf0-ec-u7v" secondAttribute="trailing" constant="20" id="E16-ko-HqV"/>
+                            <constraint firstItem="mM9-Dx-nDc" firstAttribute="top" secondItem="m0F-I0-wob" secondAttribute="bottom" constant="30" id="Ixy-hy-LsH"/>
+                            <constraint firstItem="azt-eq-f1b" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="LaJ-JU-A5B"/>
+                            <constraint firstItem="m0F-I0-wob" firstAttribute="top" secondItem="uDJ-Pc-J7Y" secondAttribute="top" constant="30" id="fQr-AU-yYX"/>
+                            <constraint firstItem="azt-eq-f1b" firstAttribute="top" secondItem="uDJ-Pc-J7Y" secondAttribute="top" constant="30" id="ili-hx-s4p"/>
+                            <constraint firstItem="jf0-ec-u7v" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="xjK-1r-KMQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uDJ-Pc-J7Y"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oV2-au-bUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4865" y="90"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Cum-vc-HH5"/>
+        <segue reference="ctx-6r-49V"/>
+        <segue reference="km4-Zg-7ha"/>
+        <segue reference="208-RJ-qaR"/>
+        <segue reference="zx9-x2-mz8"/>
+        <segue reference="6xj-k5-o4g"/>
+        <segue reference="cka-Nu-8AK"/>
+        <segue reference="W4j-Oz-6O1"/>
+    </inferredMetricsTieBreakers>
 </document>
