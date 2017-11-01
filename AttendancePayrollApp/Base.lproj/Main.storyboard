@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jT4-d1-Ehq">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="jT4-d1-Ehq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tsh-L4-epe">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -28,110 +28,216 @@
         <!--Sign up-->
         <scene sceneID="ouD-tb-I0x">
             <objects>
-                <viewController title="Sign up" id="qLo-lA-QQN" sceneMemberID="viewController">
+                <viewController title="Sign up" id="qLo-lA-QQN" customClass="HomeViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ctz-aK-ocs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0Z-jb-4CV">
-                                <rect key="frame" x="130.5" y="94" width="113" height="30"/>
-                                <state key="normal" title="Employer sign in"/>
-                                <connections>
-                                    <segue destination="lmV-FV-wzv" kind="show" id="6xj-k5-o4g"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1W-n8-oI2">
-                                <rect key="frame" x="138" y="154" width="98" height="30"/>
-                                <state key="normal" title="Worker sign in"/>
-                                <connections>
-                                    <segue destination="UVj-Ox-wme" kind="show" id="cka-Nu-8AK"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-bt-o1H">
-                                <rect key="frame" x="117.5" y="607" width="139" height="30"/>
-                                <state key="normal" title="Sign up as employer"/>
+                                <rect key="frame" x="16" y="324" width="288" height="40"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="F3n-Ar-YSO"/>
+                                </constraints>
+                                <state key="normal" title="Sign up as employer">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="l0v-Wn-Ymp" kind="show" id="Fko-nN-2oh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97x-sL-jve">
+                                <rect key="frame" x="16" y="114" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WcA-bL-XJc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3S-dw-8wS">
+                                <rect key="frame" x="16" y="174" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fyu-MT-n6g"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEM-to-Wmz">
+                                <rect key="frame" x="16" y="264" width="288" height="40"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="p9b-3f-BTI"/>
+                                </constraints>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInClicked:" destination="qLo-lA-QQN" eventType="touchUpInside" id="lsV-XY-KjH"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ee7-a8-yZx" firstAttribute="bottom" secondItem="gi3-bt-o1H" secondAttribute="bottom" constant="30" id="0Gw-4q-2H1"/>
-                            <constraint firstItem="gi3-bt-o1H" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="Aiq-HS-ZPe"/>
-                            <constraint firstItem="e1W-n8-oI2" firstAttribute="top" secondItem="v0Z-jb-4CV" secondAttribute="bottom" constant="30" id="SJt-NP-3F9"/>
-                            <constraint firstItem="v0Z-jb-4CV" firstAttribute="top" secondItem="Ee7-a8-yZx" secondAttribute="top" constant="30" id="cbW-l0-P2O"/>
-                            <constraint firstItem="v0Z-jb-4CV" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="v1a-Oe-NxW"/>
-                            <constraint firstItem="e1W-n8-oI2" firstAttribute="centerX" secondItem="ctz-aK-ocs" secondAttribute="centerX" id="zU7-qL-rDd"/>
+                            <constraint firstItem="Ee7-a8-yZx" firstAttribute="trailing" secondItem="gi3-bt-o1H" secondAttribute="trailing" constant="16" id="2qy-BZ-1DA"/>
+                            <constraint firstItem="m3S-dw-8wS" firstAttribute="top" secondItem="97x-sL-jve" secondAttribute="bottom" constant="20" id="HAx-bl-ttP"/>
+                            <constraint firstItem="97x-sL-jve" firstAttribute="top" secondItem="Ee7-a8-yZx" secondAttribute="top" constant="50" id="J2J-O2-Eaa"/>
+                            <constraint firstItem="gi3-bt-o1H" firstAttribute="top" secondItem="oEM-to-Wmz" secondAttribute="bottom" constant="20" id="OI5-vc-vIO"/>
+                            <constraint firstItem="m3S-dw-8wS" firstAttribute="leading" secondItem="Ee7-a8-yZx" secondAttribute="leading" constant="16" id="OYU-wF-fY4"/>
+                            <constraint firstItem="Ee7-a8-yZx" firstAttribute="trailing" secondItem="oEM-to-Wmz" secondAttribute="trailing" constant="16" id="SFr-h2-ACW"/>
+                            <constraint firstItem="oEM-to-Wmz" firstAttribute="top" secondItem="m3S-dw-8wS" secondAttribute="bottom" constant="50" id="Vam-BL-IqE"/>
+                            <constraint firstItem="oEM-to-Wmz" firstAttribute="leading" secondItem="Ee7-a8-yZx" secondAttribute="leading" constant="16" id="bXe-Lw-SSm"/>
+                            <constraint firstItem="gi3-bt-o1H" firstAttribute="leading" secondItem="Ee7-a8-yZx" secondAttribute="leading" constant="16" id="eAU-S8-TK2"/>
+                            <constraint firstItem="Ee7-a8-yZx" firstAttribute="trailing" secondItem="97x-sL-jve" secondAttribute="trailing" constant="16" id="jfC-SW-Grt"/>
+                            <constraint firstItem="Ee7-a8-yZx" firstAttribute="trailing" secondItem="m3S-dw-8wS" secondAttribute="trailing" constant="16" id="wPg-C7-mMz"/>
+                            <constraint firstItem="97x-sL-jve" firstAttribute="leading" secondItem="Ee7-a8-yZx" secondAttribute="leading" constant="16" id="xA1-qM-BOr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ee7-a8-yZx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Y7s-E1-cWS"/>
                     <connections>
+                        <outlet property="emailField" destination="97x-sL-jve" id="VA3-03-5AD"/>
+                        <outlet property="passwordField" destination="m3S-dw-8wS" id="EyO-cL-6sl"/>
                         <segue destination="lmV-FV-wzv" kind="show" id="d77-1I-YMq"/>
                         <segue destination="l0v-Wn-Ymp" kind="show" id="W4j-Oz-6O1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8N2-HX-GFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="90"/>
+            <point key="canvasLocation" x="390" y="89.788732394366193"/>
         </scene>
         <!--Sign up-->
         <scene sceneID="ymt-Z3-Xvt">
             <objects>
-                <viewController title="Sign up" id="l0v-Wn-Ymp" sceneMemberID="viewController">
+                <viewController title="Sign up" id="l0v-Wn-Ymp" customClass="SignUpViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gdO-Wl-Rjd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0a-AD-iBF">
-                                <rect key="frame" x="161" y="607" width="52" height="30"/>
-                                <state key="normal" title="Sign up"/>
+                                <rect key="frame" x="16" y="508" width="288" height="40"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bG7-tk-Ftb"/>
+                                </constraints>
+                                <state key="normal" title="Sign up">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpClicked:" destination="l0v-Wn-Ymp" eventType="touchUpInside" id="nct-Cd-C9Z"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k08-TK-Wai">
+                                <rect key="frame" x="16" y="134" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Rwg-Sf-51Q"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzc-Dq-80u">
+                                <rect key="frame" x="16" y="194" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Swd-LB-xkB"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gus-Te-GAB">
+                                <rect key="frame" x="16" y="254" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="39f-Nq-EmB"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Business name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chD-cy-La8">
+                                <rect key="frame" x="16" y="374" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Uqw-TZ-7HS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xBe-Hh-Z3x">
+                                <rect key="frame" x="16" y="314" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="GwC-qG-wAY"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="746-27-wNA" firstAttribute="bottom" secondItem="G0a-AD-iBF" secondAttribute="bottom" constant="30" id="Gsh-wL-gCO"/>
-                            <constraint firstItem="G0a-AD-iBF" firstAttribute="centerX" secondItem="gdO-Wl-Rjd" secondAttribute="centerX" id="mhu-11-JA0"/>
+                            <constraint firstItem="jzc-Dq-80u" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="0jW-pX-rAT"/>
+                            <constraint firstItem="xBe-Hh-Z3x" firstAttribute="top" secondItem="Gus-Te-GAB" secondAttribute="bottom" constant="20" id="53j-dA-fjV"/>
+                            <constraint firstItem="jzc-Dq-80u" firstAttribute="top" secondItem="k08-TK-Wai" secondAttribute="bottom" constant="20" id="ABB-nd-zHK"/>
+                            <constraint firstItem="chD-cy-La8" firstAttribute="top" secondItem="xBe-Hh-Z3x" secondAttribute="bottom" constant="20" id="D2E-aC-H1y"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="xBe-Hh-Z3x" secondAttribute="trailing" constant="16" id="EZq-rP-SqB"/>
+                            <constraint firstItem="k08-TK-Wai" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="F9E-VB-ray"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="G0a-AD-iBF" secondAttribute="trailing" constant="16" id="FU2-rX-udu"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="Gus-Te-GAB" secondAttribute="trailing" constant="16" id="LQg-QR-jtq"/>
+                            <constraint firstItem="k08-TK-Wai" firstAttribute="top" secondItem="746-27-wNA" secondAttribute="top" constant="70" id="P4j-QH-Vln"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="bottom" secondItem="G0a-AD-iBF" secondAttribute="bottom" constant="20" id="SNW-Gt-Dmj"/>
+                            <constraint firstItem="Gus-Te-GAB" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="Zs2-Ie-SwS"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="jzc-Dq-80u" secondAttribute="trailing" constant="16" id="cze-QW-prS"/>
+                            <constraint firstItem="Gus-Te-GAB" firstAttribute="top" secondItem="jzc-Dq-80u" secondAttribute="bottom" constant="20" id="uWk-81-L0s"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="chD-cy-La8" secondAttribute="trailing" constant="16" id="vgJ-vY-7im"/>
+                            <constraint firstItem="chD-cy-La8" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="vpR-MB-SUA"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="k08-TK-Wai" secondAttribute="trailing" constant="16" id="y6Y-OY-9Su"/>
+                            <constraint firstItem="G0a-AD-iBF" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="yaF-ss-BaB"/>
+                            <constraint firstItem="xBe-Hh-Z3x" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="yjG-wO-nZr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="746-27-wNA"/>
                     </view>
                     <connections>
+                        <outlet property="businessNameField" destination="chD-cy-La8" id="vCG-pw-w9X"/>
+                        <outlet property="emailField" destination="k08-TK-Wai" id="C0W-gP-RR4"/>
+                        <outlet property="firstNameField" destination="Gus-Te-GAB" id="kRG-Dc-N1D"/>
+                        <outlet property="lastNameField" destination="xBe-Hh-Z3x" id="6KL-y6-HFH"/>
+                        <outlet property="passwordField" destination="jzc-Dq-80u" id="CY5-DM-9h1"/>
                         <segue destination="UVj-Ox-wme" kind="show" id="pxP-7N-CIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zA-3g-dcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="796"/>
+            <point key="canvasLocation" x="389.60000000000002" y="795.6521739130435"/>
         </scene>
         <!--Worker menu-->
         <scene sceneID="TAI-y4-15i">
             <objects>
-                <viewController title="Worker menu" id="UVj-Ox-wme" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkerMenuVC" title="Worker menu" id="UVj-Ox-wme" customClass="WorkerMenuViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KWB-rc-Re2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naJ-fj-mJc">
-                                <rect key="frame" x="148" y="94" width="79" height="30"/>
+                                <rect key="frame" x="120.5" y="94" width="79" height="30"/>
                                 <state key="normal" title="Start / Stop"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZW-KV-Dlk">
-                                <rect key="frame" x="139" y="324" width="97" height="30"/>
+                                <rect key="frame" x="111.5" y="324" width="97" height="30"/>
                                 <state key="normal" title="Payroll history"/>
                                 <connections>
                                     <segue destination="4k3-hZ-9Zf" kind="show" id="208-RJ-qaR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I64-RV-Mzn">
-                                <rect key="frame" x="126" y="384" width="122" height="30"/>
+                                <rect key="frame" x="99" y="384" width="122" height="30"/>
                                 <state key="normal" title="Current paycheck"/>
                                 <connections>
                                     <segue destination="6Sl-9k-MpN" kind="show" id="km4-Zg-7ha"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-3X-kPo">
-                                <rect key="frame" x="161.5" y="607" width="52" height="30"/>
+                                <rect key="frame" x="134" y="508" width="52" height="30"/>
                                 <state key="normal" title="Log out"/>
                             </button>
                         </subviews>
@@ -159,34 +265,34 @@
         <!--Employer menu-->
         <scene sceneID="5iY-bc-XWz">
             <objects>
-                <viewController title="Employer menu" id="lmV-FV-wzv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmployerMenuVC" title="Employer menu" id="lmV-FV-wzv" customClass="EmployerMenuViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4AD-JM-YUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-Ee-r9O">
-                                <rect key="frame" x="148" y="94" width="78" height="30"/>
+                                <rect key="frame" x="121" y="94" width="78" height="30"/>
                                 <state key="normal" title="Add worker"/>
                                 <connections>
                                     <segue destination="XR6-Zg-Djb" kind="show" id="Gkt-lV-QHK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q7-Sr-TXX">
-                                <rect key="frame" x="138.5" y="153" width="97" height="30"/>
+                                <rect key="frame" x="111.5" y="153" width="97" height="30"/>
                                 <state key="normal" title="Payroll history"/>
                                 <connections>
                                     <segue destination="RWC-2f-7Gn" kind="show" id="ctx-6r-49V"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2O-C5-IAi">
-                                <rect key="frame" x="117.5" y="213" width="139" height="30"/>
+                                <rect key="frame" x="90.5" y="213" width="139" height="30"/>
                                 <state key="normal" title="Unconfirmed payroll"/>
                                 <connections>
                                     <segue destination="cPT-Vz-Ko2" kind="show" id="Z9k-Eb-BbP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDe-dK-D6G">
-                                <rect key="frame" x="161" y="607" width="52" height="30"/>
+                                <rect key="frame" x="134" y="508" width="52" height="30"/>
                                 <state key="normal" title="Log out"/>
                             </button>
                         </subviews>
@@ -218,11 +324,11 @@
             <objects>
                 <viewController title="Add worker" id="XR6-Zg-Djb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bV2-TD-TP5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd7-eo-PyC">
-                                <rect key="frame" x="137.5" y="607" width="99" height="30"/>
+                                <rect key="frame" x="110.5" y="508" width="99" height="30"/>
                                 <state key="normal" title="Create Worker"/>
                             </button>
                         </subviews>
@@ -243,11 +349,11 @@
             <objects>
                 <viewController title="Name payroll history" id="4k3-hZ-9Zf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="54V-zZ-rZG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EX-Y4-Den">
-                                <rect key="frame" x="156" y="94" width="62" height="30"/>
+                                <rect key="frame" x="129" y="94" width="62" height="30"/>
                                 <state key="normal" title="10 / 2017"/>
                                 <connections>
                                     <segue destination="6Sl-9k-MpN" kind="show" id="svv-0a-Fhh"/>
@@ -274,11 +380,11 @@
             <objects>
                 <viewController title="Date paycheck" id="6Sl-9k-MpN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wDy-eV-nNO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtq-nA-kiZ">
-                                <rect key="frame" x="172" y="607" width="30" height="30"/>
+                                <rect key="frame" x="145" y="508" width="30" height="30"/>
                                 <state key="normal" title="OK"/>
                             </button>
                         </subviews>
@@ -299,11 +405,11 @@
             <objects>
                 <viewController title="Payroll history" id="RWC-2f-7Gn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f2y-Bw-4b3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-jX-pQ4">
-                                <rect key="frame" x="126" y="94" width="122" height="30"/>
+                                <rect key="frame" x="99" y="94" width="122" height="30"/>
                                 <state key="normal" title="Worker example 1"/>
                                 <connections>
                                     <segue destination="4k3-hZ-9Zf" kind="show" id="nYj-FH-lZp"/>
@@ -327,39 +433,39 @@
             <objects>
                 <viewController title="Unconfirmed payroll" id="cPT-Vz-Ko2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="10x-dG-jcT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azt-eq-f1b">
-                                <rect key="frame" x="126" y="94" width="122" height="30"/>
+                                <rect key="frame" x="99" y="94" width="122" height="30"/>
                                 <state key="normal" title="Worker example 1"/>
                                 <connections>
                                     <segue destination="6Sl-9k-MpN" kind="show" id="ZlG-1x-Lyk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0F-I0-wob">
-                                <rect key="frame" x="268" y="94" width="30" height="30"/>
-                                <state key="normal" title="OK"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jf0-ec-u7v">
-                                <rect key="frame" x="125" y="154" width="124" height="30"/>
+                                <rect key="frame" x="98" y="194" width="124" height="30"/>
                                 <state key="normal" title="Worker example 2"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mM9-Dx-nDc">
-                                <rect key="frame" x="269" y="154" width="30" height="30"/>
+                                <rect key="frame" x="145" y="234" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0F-I0-wob">
+                                <rect key="frame" x="145.5" y="134" width="30" height="30"/>
                                 <state key="normal" title="OK"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="m0F-I0-wob" firstAttribute="leading" secondItem="azt-eq-f1b" secondAttribute="trailing" constant="20" id="7QU-D3-Wqk"/>
-                            <constraint firstItem="jf0-ec-u7v" firstAttribute="top" secondItem="azt-eq-f1b" secondAttribute="bottom" constant="30" id="96P-ae-Yoj"/>
-                            <constraint firstItem="mM9-Dx-nDc" firstAttribute="leading" secondItem="jf0-ec-u7v" secondAttribute="trailing" constant="20" id="E16-ko-HqV"/>
-                            <constraint firstItem="mM9-Dx-nDc" firstAttribute="top" secondItem="m0F-I0-wob" secondAttribute="bottom" constant="30" id="Ixy-hy-LsH"/>
-                            <constraint firstItem="azt-eq-f1b" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="LaJ-JU-A5B"/>
-                            <constraint firstItem="m0F-I0-wob" firstAttribute="top" secondItem="uDJ-Pc-J7Y" secondAttribute="top" constant="30" id="fQr-AU-yYX"/>
-                            <constraint firstItem="azt-eq-f1b" firstAttribute="top" secondItem="uDJ-Pc-J7Y" secondAttribute="top" constant="30" id="ili-hx-s4p"/>
-                            <constraint firstItem="jf0-ec-u7v" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="xjK-1r-KMQ"/>
+                            <constraint firstItem="mM9-Dx-nDc" firstAttribute="top" secondItem="jf0-ec-u7v" secondAttribute="bottom" constant="10" id="573-FQ-FqO"/>
+                            <constraint firstItem="mM9-Dx-nDc" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="7qs-Pc-Tct"/>
+                            <constraint firstItem="jf0-ec-u7v" firstAttribute="top" secondItem="m0F-I0-wob" secondAttribute="bottom" constant="30" id="9eU-zI-ejE"/>
+                            <constraint firstItem="azt-eq-f1b" firstAttribute="top" secondItem="uDJ-Pc-J7Y" secondAttribute="top" constant="30" id="KOv-g1-t0F"/>
+                            <constraint firstItem="m0F-I0-wob" firstAttribute="top" secondItem="azt-eq-f1b" secondAttribute="bottom" constant="10" id="O7X-Cc-d8Q"/>
+                            <constraint firstItem="azt-eq-f1b" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="Zqd-hI-Dpc"/>
+                            <constraint firstItem="m0F-I0-wob" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="d19-km-6RJ"/>
+                            <constraint firstItem="jf0-ec-u7v" firstAttribute="centerX" secondItem="10x-dG-jcT" secondAttribute="centerX" id="pLj-2G-DEZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uDJ-Pc-J7Y"/>
                     </view>
@@ -374,9 +480,7 @@
         <segue reference="ctx-6r-49V"/>
         <segue reference="km4-Zg-7ha"/>
         <segue reference="208-RJ-qaR"/>
-        <segue reference="zx9-x2-mz8"/>
-        <segue reference="6xj-k5-o4g"/>
-        <segue reference="cka-Nu-8AK"/>
+        <segue reference="Gkt-lV-QHK"/>
         <segue reference="W4j-Oz-6O1"/>
     </inferredMetricsTieBreakers>
 </document>

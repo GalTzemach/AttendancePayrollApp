@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAEC6BCA01B76A1E77D653DA /* Pods_AttendancePayrollApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E0425514944823DF46689A /* Pods_AttendancePayrollApp.framework */; };
+		D30F36B21FA9136C00348943 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F36B11FA9136C00348943 /* HomeViewController.swift */; };
+		D30F36B41FA9167D00348943 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30F36B31FA9167D00348943 /* SignUpViewController.swift */; };
 		D314EABF1FA88B2E003107EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314EABE1FA88B2E003107EB /* AppDelegate.swift */; };
-		D314EAC11FA88B2E003107EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D314EAC01FA88B2E003107EB /* ViewController.swift */; };
 		D314EAC41FA88B2E003107EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314EAC21FA88B2E003107EB /* Main.storyboard */; };
 		D314EAC71FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D314EAC51FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld */; };
 		D314EAC91FA88B2E003107EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D314EAC81FA88B2E003107EB /* Assets.xcassets */; };
 		D314EACC1FA88B2E003107EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314EACA1FA88B2E003107EB /* LaunchScreen.storyboard */; };
+		D36298021FA93EB800C82F88 /* EmployerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */; };
+		D36298041FA93EDF00C82F88 /* WorkerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36298031FA93EDF00C82F88 /* WorkerMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11E0425514944823DF46689A /* Pods_AttendancePayrollApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendancePayrollApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41800DD454D5DAB18478F076 /* Pods-AttendancePayrollApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendancePayrollApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendancePayrollApp/Pods-AttendancePayrollApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6EB818194492536CC0ECF432 /* Pods-AttendancePayrollApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendancePayrollApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AttendancePayrollApp/Pods-AttendancePayrollApp.release.xcconfig"; sourceTree = "<group>"; };
+		D30F36B11FA9136C00348943 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D30F36B31FA9167D00348943 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D314EABB1FA88B2E003107EB /* AttendancePayrollApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendancePayrollApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D314EABE1FA88B2E003107EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D314EAC01FA88B2E003107EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D314EAC31FA88B2E003107EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D314EAC61FA88B2E003107EB /* AttendancePayrollApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AttendancePayrollApp.xcdatamodel; sourceTree = "<group>"; };
 		D314EAC81FA88B2E003107EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D314EACB1FA88B2E003107EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D314EACD1FA88B2E003107EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerMenuViewController.swift; sourceTree = "<group>"; };
+		D36298031FA93EDF00C82F88 /* WorkerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAEC6BCA01B76A1E77D653DA /* Pods_AttendancePayrollApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6515DD08907C390043B39EC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11E0425514944823DF46689A /* Pods_AttendancePayrollApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70524F96B03B74F6A0731FE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41800DD454D5DAB18478F076 /* Pods-AttendancePayrollApp.debug.xcconfig */,
+				6EB818194492536CC0ECF432 /* Pods-AttendancePayrollApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D314EAB21FA88B2E003107EB = {
 			isa = PBXGroup;
 			children = (
 				D314EABD1FA88B2E003107EB /* AttendancePayrollApp */,
 				D314EABC1FA88B2E003107EB /* Products */,
+				70524F96B03B74F6A0731FE3 /* Pods */,
+				6515DD08907C390043B39EC6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,11 +86,14 @@
 		D314EABD1FA88B2E003107EB /* AttendancePayrollApp */ = {
 			isa = PBXGroup;
 			children = (
-				D314EABE1FA88B2E003107EB /* AppDelegate.swift */,
-				D314EAC01FA88B2E003107EB /* ViewController.swift */,
 				D314EAC21FA88B2E003107EB /* Main.storyboard */,
+				D36298031FA93EDF00C82F88 /* WorkerMenuViewController.swift */,
+				D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */,
+				D30F36B11FA9136C00348943 /* HomeViewController.swift */,
+				D30F36B31FA9167D00348943 /* SignUpViewController.swift */,
 				D314EAC81FA88B2E003107EB /* Assets.xcassets */,
 				D314EACA1FA88B2E003107EB /* LaunchScreen.storyboard */,
+				D314EABE1FA88B2E003107EB /* AppDelegate.swift */,
 				D314EACD1FA88B2E003107EB /* Info.plist */,
 				D314EAC51FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld */,
 			);
@@ -74,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D314EAD01FA88B2E003107EB /* Build configuration list for PBXNativeTarget "AttendancePayrollApp" */;
 			buildPhases = (
+				9ED1AFBF7B3B31569BC270B7 /* [CP] Check Pods Manifest.lock */,
 				D314EAB71FA88B2E003107EB /* Sources */,
 				D314EAB81FA88B2E003107EB /* Frameworks */,
 				D314EAB91FA88B2E003107EB /* Resources */,
+				718BBC7BEF683E6EB9A7DC26 /* [CP] Embed Pods Frameworks */,
+				72BA2A2ACC57965B25C11D82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,14 +170,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		718BBC7BEF683E6EB9A7DC26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AttendancePayrollApp/Pods-AttendancePayrollApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AttendancePayrollApp/Pods-AttendancePayrollApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72BA2A2ACC57965B25C11D82 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AttendancePayrollApp/Pods-AttendancePayrollApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ED1AFBF7B3B31569BC270B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AttendancePayrollApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D314EAB71FA88B2E003107EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D314EAC11FA88B2E003107EB /* ViewController.swift in Sources */,
 				D314EABF1FA88B2E003107EB /* AppDelegate.swift in Sources */,
 				D314EAC71FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld in Sources */,
+				D30F36B41FA9167D00348943 /* SignUpViewController.swift in Sources */,
+				D30F36B21FA9136C00348943 /* HomeViewController.swift in Sources */,
+				D36298021FA93EB800C82F88 /* EmployerMenuViewController.swift in Sources */,
+				D36298041FA93EDF00C82F88 /* WorkerMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +369,7 @@
 		};
 		D314EAD11FA88B2E003107EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41800DD454D5DAB18478F076 /* Pods-AttendancePayrollApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +385,7 @@
 		};
 		D314EAD21FA88B2E003107EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EB818194492536CC0ECF432 /* Pods-AttendancePayrollApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
