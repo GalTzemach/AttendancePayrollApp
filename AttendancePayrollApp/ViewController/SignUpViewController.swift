@@ -32,20 +32,21 @@ class SignUpViewController: UIViewController {
     
     // Actions - (buttons clicked)
     @IBAction func signUpClicked(_ sender: Any) {
-        if (emailField.text!.isEmpty || passwordField.text!.isEmpty || firstNameField.text!.isEmpty || lastNameField.text!.isEmpty || businessNameField.text!.isEmpty) {
-            
-            // There is empty field/s.
+        if anyFieldIsEmpty() {
             self.view.makeToast("There is empty field/s", duration: 1.5, position: .center)
             
         } else {
-            // All fields are not empty.
             self.view.makeToastActivity(.center)
-            
-            if (signUp(email: emailField.text!, pass: passwordField.text!, firstName: firstNameField.text!, lastName: lastNameField.text!, businessName: businessNameField.text!)) {
+            /// call signUp
+            if signUp() {
                 
                 // SignUp success.
                 self.view.hideToastActivity()
-                self.view.makeToast("Register success", duration: 1.5, position: .center) ///
+                
+                ///
+                 let HomeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+                HomeVC.view.makeToast("Register success", duration: 1.5, position: .center)
+
                 self.navigationController?.popViewController(animated: true)
 
             } else {
@@ -56,7 +57,11 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func signUp(email: String, pass: String, firstName: String, lastName: String, businessName: String) -> Bool {
+    func anyFieldIsEmpty() -> Bool {
+        return (emailField.text!.isEmpty || passwordField.text!.isEmpty || firstNameField.text!.isEmpty || lastNameField.text!.isEmpty || businessNameField.text!.isEmpty);
+    }
+    
+    func signUp() -> Bool {
         return true;
     }
     

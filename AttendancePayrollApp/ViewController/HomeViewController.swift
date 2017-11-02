@@ -18,7 +18,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("test")
+        /// delete
+        emailField.text? = "a"
+        passwordField.text? = "a"
         // Do any additional setup after loading the view.
     }
 
@@ -28,16 +30,21 @@ class HomeViewController: UIViewController {
     }
     
     // Actions - (buttons clicked)
+    @IBAction func signUpClicked(_ sender: Any) {
+        clearFields()
+    }
+    
     @IBAction func signInClicked(_ sender: Any) {
         if (emailField.text!.isEmpty || passwordField.text!.isEmpty) {
             self.view.makeToast("There is empty field/s", duration: 1.5, position: .center)
 
         } else {
             self.view.makeToastActivity(.center)
-            if 1 + 1 > 1 {
+            clearFields()
+            if 1 > 0 {
                 // Sign in success.
                 self.view.hideToastActivity()
-                if 1 + 1 > 1 {
+                if 1 > 0 {
                     // Worker mode
                     let WorkerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "WorkerMenuVC") as! WorkerMenuViewController
                     navigationController?.pushViewController(WorkerMenuVC,animated: true)
@@ -51,13 +58,15 @@ class HomeViewController: UIViewController {
                 // Sign in failed.
                 self.view.hideToastActivity()
                 self.view.makeToast("Sign in failed, try again!", duration: 1.5, position: .center)
-                emailField.text?.removeAll()
-                passwordField.text?.removeAll()
-            
+
             }
         }
     }
     
+    func clearFields() {
+        emailField.text?.removeAll()
+        passwordField.text?.removeAll()
+    }
     
 
     /*
