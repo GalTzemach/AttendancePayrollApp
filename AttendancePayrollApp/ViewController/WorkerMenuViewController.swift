@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import FirebaseAuth
+import FirebaseFirestore
 
 class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -22,6 +23,10 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
     // For location using.
     let locationManager = CLLocationManager()
     var userLocation: CLLocation = CLLocation(latitude: 0, longitude: 0) // Default location.
+    
+    // Data from DB.
+    var paycheckArr = [String]()
+    var dayArr = [String]()
     
     // Outlets
     @IBOutlet weak var StartStopBtn: UIButton!
@@ -41,9 +46,10 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         // Disable back button from this viewController
         navigationItem.hidesBackButton = true
 
-        // Show appropriate button
-        isStartBtn = isStsrtBtn()
-        
+        checkIfIsStsrtBtn()
+    }
+    
+    func showAppropriateButton() {
         if isStartBtn {
             StartStopBtn.setTitle("Start", for: .normal)
             StartStopBtn.backgroundColor = UIColor.green
@@ -69,12 +75,42 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func isStsrtBtn() -> Bool {
+    func checkIfIsStsrtBtn() {
+        let db = Firestore.firestore()
         self.view.makeToastActivity(.center)
+        
+        // Get current date
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        let year =  components.year
+        let month = components.month
+        let day = components.day
+        let yearMonth: String = "\(year!) "+"\(month!)"
+        
         /// Get is start info from DB.
-        self.view.hideToastActivity()
-        return true
+        db.document("workers/\((Auth.auth().currentUser?.uid)!)/paychecks/\(yearMonth)/days/\(day!)").getDocument { (doc, err) in
+            
+            self.view.hideToastActivity()
+            
+            if let err = err{
+                print (err.localizedDescription)
+                self.view.makeToast("Getting data failed", duration: 1.5, position: .center)
+            }
+            else {
+                
+                if !(doc?.exists)! {
+                    self.isStartBtn = true
+                } else if doc?.data() != nil{
+                    self.isStartBtn = false
+                }
+                
+                self.showAppropriateButton()
+            }
+        }
     }
+    
+    
     @objc func increaseTimer() {
         time += 1
         updateTimerOnScreen()
@@ -95,19 +131,80 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         timerLbl.text =  h + String(hour) + ":" + m + String(minutes) + ":" + s + String(seconds)
     }
     
-    func workplaceIsCorrect() -> Bool {
+    func workplaceIsCorrect() {
         self.view.makeToastActivity(.center)
-        var isCorrect = false
-    
-        let distnce = userLocation.distance(from: getWorkplaceLocation())
-        /// print("Distance = \(distnce)")
+        let db = Firestore.firestore()
         
-        if distnce < 100 {
-            isCorrect = true
+        db.document("allUsers/\((Auth.auth().currentUser?.uid)!)").getDocument { (doc, err) in
+            
+            if let err = err{
+                print(err.localizedDescription)
+                self.view.makeToast("Getting data failed, try again!", duration: 1.5, position: .center)
+            }
+            
+            else {
+                // Change button state.
+                self.StartStopBtn.setTitle("Stop", for: .normal)
+                self.StartStopBtn.backgroundColor = UIColor.red
+                self.isStartBtn = false
+                
+                // Start timer
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
+                
+                // Insert Start time to DB.
+                
+                // Get current date
+                let date = Date()
+                let calendar = Calendar.current
+                let components = calendar.dateComponents([.year, .month, .day], from: date)
+                let year =  components.year
+                let month = components.month
+                let day = components.day
+                
+                // Add start day
+                db.collection("workers").document((Auth.auth().currentUser?.uid)!).collection("paychecks").document("\(year!) "+"\(month!)").collection("days").document("\(day!)").setData(["start" : FieldValue.serverTimestamp()], options: SetOptions.merge()) { (error) in
+                    
+                    self.view.hideToastActivity()
+
+                    if let err = error{
+                        print(err.localizedDescription)
+                    }
+                        
+                    else{
+                        self.view.makeToast("Shift starting...", duration: 1.5, position: .center)
+                    }
+                }
+                
+            }
+            
+            
+            
+//            else {
+//                for d in (doc?.data())!{
+//                    if d.key == "location"{
+//                        let location = d.value as! CLLocation
+//
+//                        let distnce = self.userLocation.distance(from: location)
+//                        /// print("Distance = \(distnce)")
+//
+//                        if distnce < 500 {
+//
+//                            // Change button state.
+//                            self.StartStopBtn.setTitle("Stop", for: .normal)
+//                            self.StartStopBtn.backgroundColor = UIColor.red
+//                            self.isStartBtn = false
+//
+//                            // Start timer
+//                            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
+//
+//                        } else {
+//                            self.view.makeToast("You must be in your workplace location to start a shift", duration: 2, position: .center)
+//                        }
+//                        break
+//                    }
+//                }
+//            }
         }
-        
-        self.view.hideToastActivity()
-        return isCorrect
     }
     
     func getWorkplaceLocation() -> CLLocation {
@@ -146,9 +243,125 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         if segue.identifier == "fromWorkerMenuToNamePayrollHistorySegue" {
             let namePayrollHistoryVC = segue.destination as! NamePayrollHistoryViewController
             namePayrollHistoryVC.uid = (Auth.auth().currentUser?.uid)!
+            namePayrollHistoryVC.paycheckArr = paycheckArr
+        }
+        
+        if segue.identifier == "fromWorkerMenuToDataPaycheckSegue" {
+            let destinationVC = segue.destination as! DatePaycheckViewController
+            destinationVC.dayArr = dayArr
+//            destinationVC.uid = (Auth.auth().currentUser?.uid)!
+//            destinationVC.paycheckArr = paycheckArr
         }
     }
     
+    func getPaychecksArrFromDB(){
+        let db = Firestore.firestore()
+        var arr = [String]()
+        
+        self.view.makeToastActivity(.center)
+
+        db.collection("workers/\((Auth.auth().currentUser?.uid)!)/paychecks").whereField("isClose", isEqualTo: true).getDocuments { (querySnapshot, err) in
+
+            self.view.hideToastActivity()
+
+            if let err = err {
+                print("Error getting documents: \(err)")
+                self.view.makeToast("Getting data failed, try again!", duration: 1.5, position: .center)
+
+            } else {
+                var counter = querySnapshot?.count
+
+                if counter == 0 {
+                    self.view.makeToast("There is no data to show", duration: 1.5, position: .center)
+                }
+                
+                for doc in (querySnapshot?.documents)!{
+                    counter = counter! - 1
+                    arr.append(doc.documentID)
+                    if counter == 0 {
+                        // Data ready to use.
+                        self.paycheckArr = arr
+                        self.performSegue(withIdentifier: "fromWorkerMenuToNamePayrollHistorySegue", sender: self)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getLastPaycheck() {
+        
+        dayArr = [String]()
+        let db = Firestore.firestore()
+        self.view.makeToastActivity(.center)
+        
+        db.collection("workers/\((Auth.auth().currentUser?.uid)!)/paychecks").whereField("isClose", isEqualTo: false).getDocuments { (docs, err) in
+            
+            if let err = err{
+                print(err.localizedDescription)
+                self.view.hideToastActivity()
+                self.view.makeToast("Getting data failed, try again!", duration: 1.5, position: .center)
+            }
+            else{
+                // Get current date
+                let date = Date()
+                let calendar = Calendar.current
+                let components = calendar.dateComponents([.year, .month, .day], from: date)
+                let year =  components.year
+                let month = components.month
+                let yearMonth: String = "\(year!) " + "\(month!)"
+                
+                for doc in (docs?.documents)!{
+                    if doc.documentID == yearMonth {
+                        db.collection("workers/\((Auth.auth().currentUser?.uid)!)/paychecks/\(yearMonth)/days").getDocuments(completion: { (docs, err) in
+                            
+                            self.view.hideToastActivity()
+
+                            if let err = err {
+                                print(err.localizedDescription)
+                                self.view.makeToast("Getting data failed, try again!", duration: 1.5, position: .center)
+
+                            }
+                            else{
+                                var count = docs?.count
+                                
+                                if count == 0 {
+                                    self.view.makeToast("There is no data to show", duration: 1.5, position: .center)
+                                }
+                                
+                                for doc in (docs?.documents)!{
+                                    
+                                    var start: String = ""
+                                    var end: String = ""
+                                    
+                                    for l in doc.data(){
+                                        if l.key == "start"{
+                                            start = l.value as! String
+                                        }
+                                        if l.key == "end"{
+                                            end = l.value as! String
+                                        }
+                                        
+                                    }
+                                    
+                                    self.dayArr.append("\(doc.documentID) \(start) - \(end)")
+                                   
+                                    count = count! - 1
+                                    if count == 0 {
+
+                                        self.performSegue(withIdentifier: "fromWorkerMenuToDataPaycheckSegue", sender: self)
+                                    }
+                                }
+                            }
+                        })
+                    }
+                    break
+                }
+                self.view.hideToastActivity()
+                self.view.makeToast("There is no data to show", duration: 1.5, position: .center)
+            }
+        }
+        
+    }
     
     // Actions - (buttons clicked)
     @IBAction func logOutClicked(_ sender: Any) {
@@ -159,30 +372,22 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func paycheckHistoryClicked(_ sender: Any) {
-        performSegue(withIdentifier: "fromWorkerMenuToNamePayrollHistorySegue", sender: self)
+        getPaychecksArrFromDB()
     }
     
     @IBAction func currentPaycheckClicked(_ sender: Any) {
-        performSegue(withIdentifier: "fromWorkerMenuToDataPaycheckSegue", sender: self)
+        getLastPaycheck()
     }
     
     @IBAction func startStopClicked(_ sender: Any) {
         if isStartBtn {
-            if workplaceIsCorrect() {
-                // Change button state.
-                StartStopBtn.setTitle("Stop", for: .normal)
-                StartStopBtn.backgroundColor = UIColor.red
-                isStartBtn = false
-                
-                // Start timer
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
-                
-                /// print(insertStartTimeToDB())
-            } else {
-                self.view.makeToast("You must be in your workplace location to start a shift", duration: 2, position: .center)
-            }
+            
+            workplaceIsCorrect()
             
         } else {
+            self.view.makeToastActivity(.center)
+            let db = Firestore.firestore()
+            
             // Change button state.
             StartStopBtn.setTitle("Start", for: .normal)
             StartStopBtn.backgroundColor = UIColor.green
@@ -192,6 +397,29 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
             timer.invalidate()
             time = 0
             updateTimerOnScreen()
+            
+            // Get current date
+            let date = Date()
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day], from: date)
+            let year =  components.year
+            let month = components.month
+            let day = components.day
+            
+            // Add end day
+            db.collection("workers").document((Auth.auth().currentUser?.uid)!).collection("paychecks").document("\(year!) "+"\(month!)").collection("days").document("\(day!)").setData(["end" : date], options: SetOptions.merge()) { (error) in
+                
+                self.view.hideToastActivity()
+                
+                if let err = error{
+                    print(err.localizedDescription)
+                    self.view.makeToast("Insert data failed, try again!", duration: 1.5, position: .center)
+                }
+                else{
+                    self.view.makeToast("Shift stop..", duration: 1.5, position: .center)
+                    /// isStartBtn
+                }
+            }
         }
     }
     

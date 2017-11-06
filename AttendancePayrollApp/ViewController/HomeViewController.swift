@@ -11,7 +11,6 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 
-
 class HomeViewController: UIViewController {
     
     // Outlets.

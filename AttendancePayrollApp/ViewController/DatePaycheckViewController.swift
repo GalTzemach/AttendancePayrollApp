@@ -10,7 +10,10 @@ import UIKit
 
 class DatePaycheckViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let dayArr = ["01  00:00:00 - 22:22:22", "02  00:00:00 - 11:11:11", "03  00:00:00 - 33:33:33"]
+    var dayArr = [String]()
+
+    //let dayArr = ["01  00:00:00 - 22:22:22", "02  00:00:00 - 11:11:11", "03  00:00:00 - 33:33:33"]
+    
     var date = ""
     var unconfirmedMode = false
 
@@ -46,15 +49,5 @@ class DatePaycheckViewController: UIViewController, UITableViewDataSource, UITab
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

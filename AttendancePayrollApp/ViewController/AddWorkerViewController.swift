@@ -54,9 +54,6 @@ class AddWorkerViewController: UIViewController {
     func addWorker() {
         self.view.makeToastActivity(.center)
         let db = Firestore.firestore()
-
-//        let tempWorker = Worker.init(email: emailField.text!, password: passwordField.text!, firstName: firstNameField.text!, lastName: lastNameField.text!, paymentPerHour: (paymentPerHourField.text! as NSString).floatValue, isStaticLocation: isStaticLocation.isOn)
-        ///print(tempWorker.show())
         
         let employerUid = Auth.auth().currentUser?.uid
         

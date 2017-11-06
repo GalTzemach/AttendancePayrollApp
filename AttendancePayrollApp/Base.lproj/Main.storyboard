@@ -311,7 +311,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4k3-hZ-9Zf" kind="show" identifier="fromWorkerMenuToNamePayrollHistorySegue" id="208-RJ-qaR"/>
+                                    <action selector="paycheckHistoryClicked:" destination="UVj-Ox-wme" eventType="touchUpInside" id="9N8-f2-SFT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I64-RV-Mzn">
@@ -326,7 +326,6 @@
                                 </state>
                                 <connections>
                                     <action selector="currentPaycheckClicked:" destination="UVj-Ox-wme" eventType="touchUpInside" id="Frs-tL-BXm"/>
-                                    <segue destination="6Sl-9k-MpN" kind="show" identifier="fromWorkerMenuToDataPaycheckSegue" id="km4-Zg-7ha"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-3X-kPo">
@@ -378,6 +377,8 @@
                     <connections>
                         <outlet property="StartStopBtn" destination="naJ-fj-mJc" id="aXe-vL-RM3"/>
                         <outlet property="timerLbl" destination="5tC-6e-fkW" id="LbR-j0-FcY"/>
+                        <segue destination="4k3-hZ-9Zf" kind="show" identifier="fromWorkerMenuToNamePayrollHistorySegue" id="RUd-go-7VT"/>
+                        <segue destination="6Sl-9k-MpN" kind="show" identifier="fromWorkerMenuToDataPaycheckSegue" id="6oX-jG-X6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8d-5r-WuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -749,8 +750,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VkC-Lu-f9t"/>
-        <segue reference="km4-Zg-7ha"/>
-        <segue reference="208-RJ-qaR"/>
+        <segue reference="6oX-jG-X6x"/>
+        <segue reference="RUd-go-7VT"/>
         <segue reference="gK7-YA-QPp"/>
         <segue reference="W4j-Oz-6O1"/>
     </inferredMetricsTieBreakers>
