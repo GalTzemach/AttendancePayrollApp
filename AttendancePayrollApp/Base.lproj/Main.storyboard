@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U1t-Cb-7JO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="90"/>
+            <point key="canvasLocation" x="-594" y="-44"/>
         </scene>
         <!--Sign up-->
         <scene sceneID="ouD-tb-I0x">
@@ -39,6 +39,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="F3n-Ar-YSO"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Sign up as employer">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -71,6 +72,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="p9b-3f-BTI"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Sign in">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -102,15 +104,58 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Y7s-E1-cWS"/>
                     <connections>
-                        <outlet property="emailField" destination="97x-sL-jve" id="VA3-03-5AD"/>
+                        <outlet property="emailField" destination="97x-sL-jve" id="cc2-uY-Awm"/>
                         <outlet property="passwordField" destination="m3S-dw-8wS" id="EyO-cL-6sl"/>
-                        <segue destination="lmV-FV-wzv" kind="show" id="d77-1I-YMq"/>
+                        <segue destination="lmV-FV-wzv" kind="show" identifier="fromHomeToEmployerMenuSegue" id="d77-1I-YMq"/>
                         <segue destination="l0v-Wn-Ymp" kind="show" id="W4j-Oz-6O1"/>
+                        <segue destination="UVj-Ox-wme" kind="show" identifier="fromHomeToWorkerMenuSegue" id="uUW-9n-6gm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8N2-HX-GFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="89.788732394366193"/>
+            <point key="canvasLocation" x="231" y="-44"/>
+        </scene>
+        <!--Business location-->
+        <scene sceneID="IjD-AB-FAW">
+            <objects>
+                <viewController storyboardIdentifier="BusinessLocationVC" title="Business location" id="xxH-Ct-BmO" customClass="BusinessLocationViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="Business location" id="6fa-Td-kZt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCW-sD-ffE">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xxH-Ct-BmO" id="Mc6-wW-3cI"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DG-3E-W4I">
+                                <rect key="frame" x="92.5" y="513" width="135" height="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Select location"/>
+                                <connections>
+                                    <action selector="selectLocationClicked:" destination="xxH-Ct-BmO" eventType="touchUpInside" id="wUJ-Ez-xib"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rCW-sD-ffE" firstAttribute="leading" secondItem="Tu8-AI-39T" secondAttribute="leading" id="3PC-Jn-hg8"/>
+                            <constraint firstItem="rCW-sD-ffE" firstAttribute="trailing" secondItem="Tu8-AI-39T" secondAttribute="trailing" id="YFF-fV-eDE"/>
+                            <constraint firstItem="rCW-sD-ffE" firstAttribute="bottom" secondItem="Tu8-AI-39T" secondAttribute="bottom" id="kaK-O7-EQw"/>
+                            <constraint firstItem="Tu8-AI-39T" firstAttribute="bottom" secondItem="6DG-3E-W4I" secondAttribute="bottom" constant="20" id="nij-dq-A9X"/>
+                            <constraint firstItem="rCW-sD-ffE" firstAttribute="top" secondItem="Tu8-AI-39T" secondAttribute="top" id="xcm-Ql-xYH"/>
+                            <constraint firstItem="6DG-3E-W4I" firstAttribute="centerX" secondItem="6fa-Td-kZt" secondAttribute="centerX" id="yCx-GK-hkk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tu8-AI-39T"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="rCW-sD-ffE" id="qsQ-vi-RZ0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXw-9r-vRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="681"/>
         </scene>
         <!--Sign up-->
         <scene sceneID="ymt-Z3-Xvt">
@@ -126,6 +171,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bG7-tk-Ftb"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -178,14 +224,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="family-name"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lly-oI-Zsu">
+                                <rect key="frame" x="16" y="389" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Tuc-Ic-7oG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="choose your business location"/>
+                                <connections>
+                                    <segue destination="xxH-Ct-BmO" kind="show" identifier="fromSignUpToBusinessLocationSegue" id="BvG-RN-Uum"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jzc-Dq-80u" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="0jW-pX-rAT"/>
                             <constraint firstItem="k08-TK-Wai" firstAttribute="top" secondItem="746-27-wNA" secondAttribute="top" constant="50" id="3Og-IC-N0B"/>
+                            <constraint firstItem="Lly-oI-Zsu" firstAttribute="centerX" secondItem="gdO-Wl-Rjd" secondAttribute="centerX" id="5S0-8y-w3C"/>
                             <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="xBe-Hh-Z3x" secondAttribute="trailing" constant="16" id="EZq-rP-SqB"/>
                             <constraint firstItem="k08-TK-Wai" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="F9E-VB-ray"/>
                             <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="G0a-AD-iBF" secondAttribute="trailing" constant="16" id="FU2-rX-udu"/>
+                            <constraint firstItem="Lly-oI-Zsu" firstAttribute="top" secondItem="chD-cy-La8" secondAttribute="bottom" constant="15" id="GHx-xf-ewi"/>
+                            <constraint firstItem="Lly-oI-Zsu" firstAttribute="leading" secondItem="746-27-wNA" secondAttribute="leading" constant="16" id="JYf-56-Heh"/>
+                            <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="Lly-oI-Zsu" secondAttribute="trailing" constant="16" id="JmR-ik-kmh"/>
                             <constraint firstItem="746-27-wNA" firstAttribute="trailing" secondItem="Gus-Te-GAB" secondAttribute="trailing" constant="16" id="LQg-QR-jtq"/>
                             <constraint firstItem="xBe-Hh-Z3x" firstAttribute="top" secondItem="Gus-Te-GAB" secondAttribute="bottom" constant="15" id="OxJ-w2-hTP"/>
                             <constraint firstItem="jzc-Dq-80u" firstAttribute="centerX" secondItem="gdO-Wl-Rjd" secondAttribute="centerX" id="QJu-Dg-YXq"/>
@@ -214,12 +275,11 @@
                         <outlet property="firstNameField" destination="Gus-Te-GAB" id="kRG-Dc-N1D"/>
                         <outlet property="lastNameField" destination="xBe-Hh-Z3x" id="6KL-y6-HFH"/>
                         <outlet property="passwordField" destination="jzc-Dq-80u" id="CY5-DM-9h1"/>
-                        <segue destination="UVj-Ox-wme" kind="show" id="pxP-7N-CIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zA-3g-dcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389.60000000000002" y="795.6521739130435"/>
+            <point key="canvasLocation" x="231" y="682"/>
         </scene>
         <!--Worker menu-->
         <scene sceneID="TAI-y4-15i">
@@ -232,7 +292,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naJ-fj-mJc">
                                 <rect key="frame" x="16" y="114" width="288" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <state key="normal" title="Start / Stop">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -246,6 +306,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d4k-v2-uEH"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Payroll history">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -259,6 +320,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rT8-a9-4Kb"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Current paycheck">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -272,6 +334,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hXS-nl-XKq"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -318,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8d-5r-WuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1123.125" y="795.42253521126759"/>
+            <point key="canvasLocation" x="1924" y="680"/>
         </scene>
         <!--Employer menu-->
         <scene sceneID="5iY-bc-XWz">
@@ -334,6 +397,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oG7-Tc-sE4"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Add worker">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -347,6 +411,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ndS-5B-PrA"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Payroll history">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -360,6 +425,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="n1q-SM-Iob"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Unconfirmed payroll">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -373,6 +439,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wZU-zq-gLV"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -403,14 +470,14 @@
                         <viewLayoutGuide key="safeArea" id="wn6-Xu-BPD"/>
                     </view>
                     <connections>
-                        <segue destination="XR6-Zg-Djb" kind="show" id="zx9-x2-mz8"/>
+                        <segue destination="XR6-Zg-Djb" kind="show" identifier="fromEmployerMenuToAddWorkerSegue" id="zx9-x2-mz8"/>
                         <segue destination="RWC-2f-7Gn" kind="show" id="rzi-eD-RYm"/>
                         <segue destination="RWC-2f-7Gn" kind="show" identifier="fromEmployerMenuToPayrollHistorySegue" id="VkC-Lu-f9t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggM-mC-S5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1123.125" y="89.788732394366193"/>
+            <point key="canvasLocation" x="1074" y="-44"/>
         </scene>
         <!--Add worker-->
         <scene sceneID="FQ2-ju-O9V">
@@ -426,6 +493,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="HK3-IN-2Wd"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Create Worker">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -433,6 +501,42 @@
                                     <action selector="createWorkerClicked:" destination="XR6-Zg-Djb" eventType="touchUpInside" id="wBH-o2-laq"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Cb-7q-KZ4">
+                                <rect key="frame" x="16" y="204" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="x4h-8i-VTP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payment per hour:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gea-ig-1ei">
+                                <rect key="frame" x="16" y="314" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dod-fK-IoD"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cby-t9-Ooi">
+                                <rect key="frame" x="16" y="259" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dpf-6O-ipa"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="family-name"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Static location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOK-4V-aaQ">
+                                <rect key="frame" x="16" y="369" width="209" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-gy-xCL">
+                                <rect key="frame" x="255" y="369" width="51" height="31"/>
+                            </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiQ-ZY-Dmi">
                                 <rect key="frame" x="16" y="94" width="288" height="40"/>
                                 <constraints>
@@ -451,102 +555,53 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Cb-7q-KZ4">
-                                <rect key="frame" x="16" y="204" width="288" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fGS-XF-wMl"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="name"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NDx-6o-phY">
-                                <rect key="frame" x="16" y="369" width="288" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="8IW-tS-Rbg"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="location"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payment per hour:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gea-ig-1ei">
-                                <rect key="frame" x="16" y="314" width="288" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="dod-fK-IoD"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rg6-t4-uS8">
-                                <rect key="frame" x="16" y="424" width="288" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="aAS-jh-4JQ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="location"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cby-t9-Ooi">
-                                <rect key="frame" x="16" y="259" width="288" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="dpf-6O-ipa"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="family-name"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="wxE-Vm-Mty" secondAttribute="trailing" constant="16" id="2Ie-pl-wbz"/>
-                            <constraint firstItem="wxE-Vm-Mty" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="4LD-1n-GBd"/>
-                            <constraint firstItem="gea-ig-1ei" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="4mF-6v-rG4"/>
+                            <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="4Li-gy-xCL" secondAttribute="trailing" constant="16" id="4dA-2N-zB1"/>
+                            <constraint firstItem="yd7-eo-PyC" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="53s-oY-k04"/>
                             <constraint firstItem="gea-ig-1ei" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="BOG-Kr-9bF"/>
-                            <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="NDx-6o-phY" secondAttribute="trailing" constant="16" id="Bby-DG-7o4"/>
                             <constraint firstItem="wxE-Vm-Mty" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="E8m-dg-ygg"/>
+                            <constraint firstItem="1Cb-7q-KZ4" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="H4A-w4-bSP"/>
+                            <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="1Cb-7q-KZ4" secondAttribute="trailing" constant="16" id="Hn6-a2-T1E"/>
+                            <constraint firstItem="4Li-gy-xCL" firstAttribute="top" secondItem="gea-ig-1ei" secondAttribute="bottom" constant="15" id="JTO-Ga-cNp"/>
                             <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="Cby-t9-Ooi" secondAttribute="trailing" constant="16" id="KBo-EY-Lxl"/>
-                            <constraint firstItem="1Cb-7q-KZ4" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="LsX-vi-3Xk"/>
+                            <constraint firstItem="4Li-gy-xCL" firstAttribute="leading" secondItem="GOK-4V-aaQ" secondAttribute="trailing" constant="30" id="MXE-ZT-E7E"/>
                             <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="yd7-eo-PyC" secondAttribute="trailing" constant="16" id="OqK-vE-id4"/>
                             <constraint firstItem="gea-ig-1ei" firstAttribute="top" secondItem="Cby-t9-Ooi" secondAttribute="bottom" constant="15" id="PhF-20-GK9"/>
-                            <constraint firstItem="Cby-t9-Ooi" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="RzG-nm-lx1"/>
                             <constraint firstItem="PiQ-ZY-Dmi" firstAttribute="top" secondItem="WDb-Ks-0da" secondAttribute="top" constant="30" id="TwD-Jp-9rU"/>
-                            <constraint firstItem="PiQ-ZY-Dmi" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="UKu-tz-HZC"/>
-                            <constraint firstItem="NDx-6o-phY" firstAttribute="top" secondItem="gea-ig-1ei" secondAttribute="bottom" constant="15" id="V1s-r3-0JA"/>
                             <constraint firstItem="PiQ-ZY-Dmi" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="XeY-xu-pw0"/>
-                            <constraint firstItem="NDx-6o-phY" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="ZQn-9n-w3V"/>
-                            <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="1Cb-7q-KZ4" secondAttribute="trailing" constant="16" id="aGP-Wj-hgn"/>
                             <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="PiQ-ZY-Dmi" secondAttribute="trailing" constant="16" id="bFU-H1-PeF"/>
-                            <constraint firstItem="1Cb-7q-KZ4" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="cQv-9B-bwZ"/>
-                            <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="Rg6-t4-uS8" secondAttribute="trailing" constant="16" id="dkM-Hi-GRz"/>
-                            <constraint firstItem="Rg6-t4-uS8" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="f6x-EG-KTg"/>
-                            <constraint firstItem="NDx-6o-phY" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="iNe-0U-xhn"/>
-                            <constraint firstItem="1Cb-7q-KZ4" firstAttribute="top" secondItem="wxE-Vm-Mty" secondAttribute="bottom" constant="15" id="lfG-hC-Thh"/>
+                            <constraint firstItem="wxE-Vm-Mty" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="cqb-O4-HMe"/>
+                            <constraint firstItem="PiQ-ZY-Dmi" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="gcO-iS-4cP"/>
+                            <constraint firstItem="gea-ig-1ei" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="hwV-bO-L1b"/>
+                            <constraint firstItem="Cby-t9-Ooi" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="nPW-kd-1NI"/>
                             <constraint firstItem="WDb-Ks-0da" firstAttribute="bottom" secondItem="yd7-eo-PyC" secondAttribute="bottom" constant="20" id="nQL-og-ecx"/>
                             <constraint firstItem="yd7-eo-PyC" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="qSn-1w-6Mf"/>
-                            <constraint firstItem="Cby-t9-Ooi" firstAttribute="top" secondItem="1Cb-7q-KZ4" secondAttribute="bottom" constant="15" id="tMY-ex-J1G"/>
-                            <constraint firstItem="Rg6-t4-uS8" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="tP8-Au-ToF"/>
+                            <constraint firstItem="GOK-4V-aaQ" firstAttribute="top" secondItem="gea-ig-1ei" secondAttribute="bottom" constant="15" id="qb9-hG-UkE"/>
+                            <constraint firstItem="1Cb-7q-KZ4" firstAttribute="top" secondItem="wxE-Vm-Mty" secondAttribute="bottom" constant="15" id="tLd-aG-R9V"/>
                             <constraint firstItem="WDb-Ks-0da" firstAttribute="trailing" secondItem="gea-ig-1ei" secondAttribute="trailing" constant="16" id="uAw-Ey-abO"/>
                             <constraint firstItem="Cby-t9-Ooi" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="uiV-oA-2Ai"/>
-                            <constraint firstItem="yd7-eo-PyC" firstAttribute="centerX" secondItem="bV2-TD-TP5" secondAttribute="centerX" id="v1J-Rw-S6F"/>
-                            <constraint firstItem="Rg6-t4-uS8" firstAttribute="top" secondItem="NDx-6o-phY" secondAttribute="bottom" constant="15" id="wT1-EI-7ZV"/>
                             <constraint firstItem="wxE-Vm-Mty" firstAttribute="top" secondItem="PiQ-ZY-Dmi" secondAttribute="bottom" constant="15" id="xtg-Vw-tEu"/>
+                            <constraint firstItem="1Cb-7q-KZ4" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="y6c-1i-Nr5"/>
+                            <constraint firstItem="GOK-4V-aaQ" firstAttribute="leading" secondItem="WDb-Ks-0da" secondAttribute="leading" constant="16" id="ygQ-sc-hT9"/>
+                            <constraint firstItem="Cby-t9-Ooi" firstAttribute="top" secondItem="1Cb-7q-KZ4" secondAttribute="bottom" constant="15" id="zws-P3-xcE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WDb-Ks-0da"/>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="PiQ-ZY-Dmi" id="lYL-k4-8s4"/>
                         <outlet property="firstNameField" destination="1Cb-7q-KZ4" id="NPu-q9-81X"/>
+                        <outlet property="isStaticLocation" destination="4Li-gy-xCL" id="cwg-iQ-P6K"/>
                         <outlet property="lastNameField" destination="Cby-t9-Ooi" id="v4U-M1-xps"/>
-                        <outlet property="latitudeField" destination="Rg6-t4-uS8" id="g0L-qJ-7UM"/>
-                        <outlet property="longitudeField" destination="NDx-6o-phY" id="rF6-an-rDM"/>
                         <outlet property="passwordField" destination="wxE-Vm-Mty" id="sIa-3D-LL8"/>
                         <outlet property="paymentPerHourField" destination="gea-ig-1ei" id="OBu-Zo-AY1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g99-3q-OAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1856.25" y="89.788732394366193"/>
+            <point key="canvasLocation" x="1924" y="-44"/>
         </scene>
         <!--Name payroll history-->
         <scene sceneID="fNz-l6-Tkx">
@@ -591,7 +646,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPg-Df-nE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="795"/>
+            <point key="canvasLocation" x="2839" y="679"/>
         </scene>
         <!--Date paycheck-->
         <scene sceneID="9bd-Zi-7kS">
@@ -620,8 +675,9 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWa-Pg-Sgm">
-                                <rect key="frame" x="145" y="488" width="30" height="30"/>
-                                <state key="normal" title="OK"/>
+                                <rect key="frame" x="77" y="488" width="166" height="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Confirm paycheck"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -642,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v38-AI-t9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3083" y="794"/>
+            <point key="canvasLocation" x="3632" y="678"/>
         </scene>
         <!--Payroll history-->
         <scene sceneID="w3O-1B-Za7">
@@ -687,14 +743,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9c-5H-KVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2739" y="90"/>
+            <point key="canvasLocation" x="3173" y="-44"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rzi-eD-RYm"/>
+        <segue reference="VkC-Lu-f9t"/>
         <segue reference="km4-Zg-7ha"/>
         <segue reference="208-RJ-qaR"/>
-        <segue reference="zx9-x2-mz8"/>
+        <segue reference="gK7-YA-QPp"/>
         <segue reference="W4j-Oz-6O1"/>
     </inferredMetricsTieBreakers>
 </document>

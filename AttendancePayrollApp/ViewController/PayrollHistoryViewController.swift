@@ -10,17 +10,17 @@ import UIKit
 
 class PayrollHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let arr = ["Worker 1", "Worker 2", "Worker 3", "Worker 4", "Worker 5"]
+    var payrollArr = [String]()
     var currentIndex = -1
     var unconfirmedMode = false
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return payrollArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "WorkerCell")
-        cell.textLabel?.text = arr[indexPath.row]
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "WorkerCell")
+        cell.textLabel?.text = payrollArr[indexPath.row]
         cell.textLabel?.textAlignment = NSTextAlignment.center
         return cell
     }
@@ -34,16 +34,17 @@ class PayrollHistoryViewController: UIViewController, UITableViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fromPayrollToWorkerPayrollSegue") {
             let destinationVc = segue.destination as! NamePayrollHistoryViewController
-            destinationVc.uid = arr[currentIndex]
+            destinationVc.uid = payrollArr[currentIndex]
             destinationVc.unconfirmedMode = unconfirmedMode
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /// print("unconfirmedMode: \(unconfirmedMode)")
-        // Do any additional setup after loading the view.
+        
+        if getAllPayrollHistory() {
+            print(" ")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,15 +52,15 @@ class PayrollHistoryViewController: UIViewController, UITableViewDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getAllPayrollHistory() -> Bool {
+        self.view.makeToastActivity(.center)
+        /// get info.
+        /// info appropriate to unconfirmed mode.
+        payrollArr = ["Worker 1", "Worker 2", "Worker 3", "Worker 4", "Worker 5"]
+        self.view.hideToastActivity()
+        return true
     }
-    */
+    
+    
 
 }

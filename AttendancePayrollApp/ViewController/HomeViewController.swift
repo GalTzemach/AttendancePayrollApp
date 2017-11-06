@@ -18,10 +18,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        designField()
+        
         /// delete
         emailField.text? = "a"
         passwordField.text? = "a"
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,9 +30,16 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func designField() {
+//        let borderColor = UIColor.darkGray
+//        emailField.layer.borderColor = borderColor.cgColor
+//        emailField.layer.borderWidth = 1.5
+//        emailField.layer.cornerRadius = 20
+    }
+    
     // Actions - (buttons clicked)
     @IBAction func signUpClicked(_ sender: Any) {
-        clearFields()
+        clearAllFields()
     }
     
     @IBAction func signInClicked(_ sender: Any) {
@@ -39,12 +47,9 @@ class HomeViewController: UIViewController {
             self.view.makeToast("There is empty field/s", duration: 1.5, position: .center)
 
         } else {
-            self.view.makeToastActivity(.center)
-            clearFields()
-            if 1 > 0 {
+            if signIn() {
                 // Sign in success.
-                self.view.hideToastActivity()
-                if 1 > 0 {
+                if isWorker() {
                     // Worker mode
                     let WorkerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "WorkerMenuVC") as! WorkerMenuViewController
                     navigationController?.pushViewController(WorkerMenuVC,animated: true)
@@ -56,27 +61,32 @@ class HomeViewController: UIViewController {
                 }
             } else {
                 // Sign in failed.
-                self.view.hideToastActivity()
                 self.view.makeToast("Sign in failed, try again!", duration: 1.5, position: .center)
-
             }
         }
     }
     
-    func clearFields() {
+    func clearAllFields() {
         emailField.text?.removeAll()
         passwordField.text?.removeAll()
     }
     
+    func signIn() -> Bool {
+        clearAllFields()
 
-    /*
-    // MARK: - Navigation
+        self.view.makeToastActivity(.center)
+        /// Try sign in.
+        self.view.hideToastActivity()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        return true
     }
-    */
-
+    
+    func isWorker() -> Bool {
+        self.view.makeToastActivity(.center)
+        
+        self.view.hideToastActivity()
+        return true
+    }
+    
+    
 }

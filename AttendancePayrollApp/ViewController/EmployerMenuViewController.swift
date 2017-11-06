@@ -14,8 +14,9 @@ class EmployerMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Disable back button from this viewController
+        navigationItem.hidesBackButton = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +27,6 @@ class EmployerMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fromEmployerMenuToPayrollHistorySegue") {
             let destinationVc = segue.destination as! PayrollHistoryViewController
-            
             destinationVc.unconfirmedMode = unconfirmedMode ? true : false
         }
     }
@@ -50,15 +50,5 @@ class EmployerMenuViewController: UIViewController {
         performSegue(withIdentifier: "fromEmployerMenuToPayrollHistorySegue", sender: self)
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

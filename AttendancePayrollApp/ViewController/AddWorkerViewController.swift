@@ -16,14 +16,21 @@ class AddWorkerViewController: UIViewController {
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var paymentPerHourField: UITextField!
-    @IBOutlet weak var longitudeField: UITextField!
-    @IBOutlet weak var latitudeField: UITextField!
+    @IBOutlet weak var isStaticLocation: UISwitch!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        /// temp
+        emailField.text = "a"
+        passwordField.text = "a"
+        firstNameField.text = "a"
+        lastNameField.text = "a"
+        paymentPerHourField.text = "45.5"
+        
+        print(isStaticLocation.isOn)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,17 +42,14 @@ class AddWorkerViewController: UIViewController {
     @IBAction func createWorkerClicked(_ sender: Any) {
         if anyFieldIsEmpty() {
             self.view.makeToast("There is empty field/s", duration: 1.5, position: .center)
-        } else {
-            self.view.makeToastActivity(.center)
             
+        } else {
             if addWorker() {
                 // Add worker success.
-                self.view.hideToastActivity() /// ?
                 self.navigationController?.popViewController(animated: true)
                 
             } else {
                 // Add worker failed.
-                self.view.hideToastActivity()
                 self.view.makeToast("Add worker failed, try again!", duration: 1.5, position: .center)
            
             }
@@ -53,21 +57,19 @@ class AddWorkerViewController: UIViewController {
     }
     
     func anyFieldIsEmpty() -> Bool {
-        return (emailField.text!.isEmpty || passwordField.text!.isEmpty || firstNameField.text!.isEmpty || lastNameField.text!.isEmpty || paymentPerHourField.text!.isEmpty || longitudeField.text!.isEmpty || latitudeField.text!.isEmpty);
+        return (emailField.text!.isEmpty || passwordField.text!.isEmpty || firstNameField.text!.isEmpty || lastNameField.text!.isEmpty || paymentPerHourField.text!.isEmpty);
     }
     
     func addWorker() -> Bool {
+        self.view.makeToastActivity(.center)
+        
+        /// create new worker to DB.
+        let tempWorker = Worker.init(email: emailField.text!, password: passwordField.text!, firstName: firstNameField.text!, lastName: lastNameField.text!, paymentPerHour: (paymentPerHourField.text! as NSString).floatValue, isStaticLocation: isStaticLocation.isOn)
+        print(tempWorker.show())
+        
+        self.view.hideToastActivity()
         return true;
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

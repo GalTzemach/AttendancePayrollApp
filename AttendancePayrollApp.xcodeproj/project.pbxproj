@@ -15,6 +15,7 @@
 		D314EAC71FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D314EAC51FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld */; };
 		D314EAC91FA88B2E003107EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D314EAC81FA88B2E003107EB /* Assets.xcassets */; };
 		D314EACC1FA88B2E003107EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314EACA1FA88B2E003107EB /* LaunchScreen.storyboard */; };
+		D348FC511FAF8A0F007A550B /* BusinessLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D348FC501FAF8A0F007A550B /* BusinessLocationViewController.swift */; };
 		D36298021FA93EB800C82F88 /* EmployerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */; };
 		D36298041FA93EDF00C82F88 /* WorkerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36298031FA93EDF00C82F88 /* WorkerMenuViewController.swift */; };
 		D3A17B7F1FAA2FBA0021F0CD /* NamePayrollHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A17B7E1FAA2FBA0021F0CD /* NamePayrollHistoryViewController.swift */; };
@@ -22,6 +23,8 @@
 		D3A17B831FAA8AFA0021F0CD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A17B821FAA8AFA0021F0CD /* CoreLocation.framework */; };
 		D3BDE8A91FA9EC5E0024FF63 /* AddWorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDE8A81FA9EC5E0024FF63 /* AddWorkerViewController.swift */; };
 		D3BDE8AC1FAA032A0024FF63 /* PayrollHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BDE8AB1FAA032A0024FF63 /* PayrollHistoryViewController.swift */; };
+		D3E2BFB41FAF184800967198 /* Employer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2BFB31FAF184800967198 /* Employer.swift */; };
+		D3E2BFB61FAF1E4200967198 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E2BFB51FAF1E4200967198 /* Worker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,7 @@
 		D314EAC81FA88B2E003107EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D314EACB1FA88B2E003107EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D314EACD1FA88B2E003107EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D348FC501FAF8A0F007A550B /* BusinessLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLocationViewController.swift; sourceTree = "<group>"; };
 		D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerMenuViewController.swift; sourceTree = "<group>"; };
 		D36298031FA93EDF00C82F88 /* WorkerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerMenuViewController.swift; sourceTree = "<group>"; };
 		D3A17B7E1FAA2FBA0021F0CD /* NamePayrollHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePayrollHistoryViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		D3A17B821FAA8AFA0021F0CD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D3BDE8A81FA9EC5E0024FF63 /* AddWorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkerViewController.swift; sourceTree = "<group>"; };
 		D3BDE8AB1FAA032A0024FF63 /* PayrollHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayrollHistoryViewController.swift; sourceTree = "<group>"; };
+		D3E2BFB31FAF184800967198 /* Employer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employer.swift; sourceTree = "<group>"; };
+		D3E2BFB51FAF1E4200967198 /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D3BDE8AA1FA9EC6C0024FF63 /* ViewController */,
+				D348FC521FAFD6CA007A550B /* Objects */,
 				D314EAC21FA88B2E003107EB /* Main.storyboard */,
 				D314EAC81FA88B2E003107EB /* Assets.xcassets */,
 				D314EACD1FA88B2E003107EB /* Info.plist */,
@@ -109,11 +116,21 @@
 			path = AttendancePayrollApp;
 			sourceTree = "<group>";
 		};
+		D348FC521FAFD6CA007A550B /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2BFB31FAF184800967198 /* Employer.swift */,
+				D3E2BFB51FAF1E4200967198 /* Worker.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		D3BDE8AA1FA9EC6C0024FF63 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				D30F36B11FA9136C00348943 /* HomeViewController.swift */,
 				D30F36B31FA9167D00348943 /* SignUpViewController.swift */,
+				D348FC501FAF8A0F007A550B /* BusinessLocationViewController.swift */,
 				D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */,
 				D3BDE8A81FA9EC5E0024FF63 /* AddWorkerViewController.swift */,
 				D3BDE8AB1FAA032A0024FF63 /* PayrollHistoryViewController.swift */,
@@ -153,6 +170,9 @@
 		D314EAB31FA88B2E003107EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					aaa,
+				);
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Tal Zemah";
@@ -254,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D314EABF1FA88B2E003107EB /* AppDelegate.swift in Sources */,
+				D3E2BFB61FAF1E4200967198 /* Worker.swift in Sources */,
 				D314EAC71FA88B2E003107EB /* AttendancePayrollApp.xcdatamodeld in Sources */,
 				D3BDE8A91FA9EC5E0024FF63 /* AddWorkerViewController.swift in Sources */,
 				D30F36B41FA9167D00348943 /* SignUpViewController.swift in Sources */,
@@ -262,6 +283,8 @@
 				D3A17B811FAA43E80021F0CD /* DatePaycheckViewController.swift in Sources */,
 				D3A17B7F1FAA2FBA0021F0CD /* NamePayrollHistoryViewController.swift in Sources */,
 				D36298021FA93EB800C82F88 /* EmployerMenuViewController.swift in Sources */,
+				D3E2BFB41FAF184800967198 /* Employer.swift in Sources */,
+				D348FC511FAF8A0F007A550B /* BusinessLocationViewController.swift in Sources */,
 				D36298041FA93EDF00C82F88 /* WorkerMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
