@@ -104,8 +104,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Y7s-E1-cWS"/>
                     <connections>
-                        <outlet property="emailField" destination="97x-sL-jve" id="cc2-uY-Awm"/>
-                        <outlet property="passwordField" destination="m3S-dw-8wS" id="EyO-cL-6sl"/>
+                        <outlet property="emailField" destination="97x-sL-jve" id="erd-0i-0Rq"/>
+                        <outlet property="passwordField" destination="m3S-dw-8wS" id="9Ng-Mk-N6G"/>
                         <segue destination="lmV-FV-wzv" kind="show" identifier="fromHomeToEmployerMenuSegue" id="d77-1I-YMq"/>
                         <segue destination="l0v-Wn-Ymp" kind="show" id="W4j-Oz-6O1"/>
                         <segue destination="UVj-Ox-wme" kind="show" identifier="fromHomeToWorkerMenuSegue" id="uUW-9n-6gm"/>
