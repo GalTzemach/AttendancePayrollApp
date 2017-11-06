@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         /// delete
-        emailField.text = "talzemah1@gmail.com"
+        emailField.text = "gal@gmail.com"
         passwordField.text = "123456"
     }
 
@@ -53,15 +53,10 @@ class HomeViewController: UIViewController {
     func signIn() {
         self.view.makeToastActivity(.center)
 
-        print("email = \(emailField.text!)")
-        print("pass = \(passwordField.text!)")
-
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
             if user != nil
             {
                 // Sign in success
-                ///self.view.hideToastActivity()
-                print("SUCCESSFUL sign in")
                 self.isWorkerOrEmployer()
                 
             }

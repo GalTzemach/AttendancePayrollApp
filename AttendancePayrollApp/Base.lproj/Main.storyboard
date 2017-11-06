@@ -311,7 +311,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4k3-hZ-9Zf" kind="show" id="208-RJ-qaR"/>
+                                    <segue destination="4k3-hZ-9Zf" kind="show" identifier="fromWorkerMenuToNamePayrollHistorySegue" id="208-RJ-qaR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I64-RV-Mzn">
@@ -325,7 +325,8 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6Sl-9k-MpN" kind="show" id="km4-Zg-7ha"/>
+                                    <action selector="currentPaycheckClicked:" destination="UVj-Ox-wme" eventType="touchUpInside" id="Frs-tL-BXm"/>
+                                    <segue destination="6Sl-9k-MpN" kind="show" identifier="fromWorkerMenuToDataPaycheckSegue" id="km4-Zg-7ha"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-3X-kPo">

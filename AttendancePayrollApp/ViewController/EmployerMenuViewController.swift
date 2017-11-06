@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class EmployerMenuViewController: UIViewController {
 
@@ -35,7 +36,7 @@ class EmployerMenuViewController: UIViewController {
     // Actions - (buttons clicked)
     @IBAction func logOutClicked(_ sender: Any) {
         self.view.makeToastActivity(.center)
-        /// call logOut func.
+        try! Auth.auth().signOut()
         self.view.hideToastActivity()
         self.navigationController?.popViewController(animated: true)
     }

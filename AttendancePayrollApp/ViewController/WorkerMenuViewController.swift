@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseAuth
 
 class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -141,12 +142,28 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromWorkerMenuToNamePayrollHistorySegue" {
+            let namePayrollHistoryVC = segue.destination as! NamePayrollHistoryViewController
+            namePayrollHistoryVC.uid = (Auth.auth().currentUser?.uid)!
+        }
+    }
+    
+    
     // Actions - (buttons clicked)
     @IBAction func logOutClicked(_ sender: Any) {
         self.view.makeToastActivity(.center)
-        /// call logOut func.
+        try! Auth.auth().signOut()
         self.view.hideToastActivity()
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func paycheckHistoryClicked(_ sender: Any) {
+        performSegue(withIdentifier: "fromWorkerMenuToNamePayrollHistorySegue", sender: self)
+    }
+    
+    @IBAction func currentPaycheckClicked(_ sender: Any) {
+        performSegue(withIdentifier: "fromWorkerMenuToDataPaycheckSegue", sender: self)
     }
     
     @IBAction func startStopClicked(_ sender: Any) {
