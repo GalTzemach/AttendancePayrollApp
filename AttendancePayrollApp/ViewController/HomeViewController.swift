@@ -21,8 +21,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         /// delete
-        emailField.text = "gal@gmail.com"
-        passwordField.text = "123456"
+        ///emailField.text = "gal@gmail.com"
+        ///passwordField.text = "123456"
     }
 
     override func didReceiveMemoryWarning() {

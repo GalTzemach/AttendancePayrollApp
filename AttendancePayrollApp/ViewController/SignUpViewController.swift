@@ -27,11 +27,11 @@ class SignUpViewController: UIViewController, DataReadyDelegate {
         super.viewDidLoad()
         
         /// delete
-        emailField.text = "talzemah1@gmail.com"
-        passwordField.text = "123456"
-        firstNameField.text = "Tal"
-        lastNameField.text = "Zemah"
-        businessNameField.text = "TalZemahPlace"
+//        emailField.text = "talzemah1@gmail.com"
+//        passwordField.text = "123456"
+//        firstNameField.text = "Tal"
+//        lastNameField.text = "Zemah"
+//        businessNameField.text = "TalZemahPlace"
 
     }
 

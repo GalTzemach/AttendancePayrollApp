@@ -101,8 +101,11 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
                 
                 if !(doc?.exists)! {
                     self.isStartBtn = true
-                } else if doc?.data() != nil{
+                } else if doc?.data() != nil && doc?.data().count == 1{
                     self.isStartBtn = false
+                } else if doc?.data().count == 2 {
+                    self.isStartBtn = false
+                    self.StartStopBtn.isEnabled = false
                 }
                 
                 self.showAppropriateButton()
@@ -417,7 +420,7 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
                 }
                 else{
                     self.view.makeToast("Shift stop..", duration: 1.5, position: .center)
-                    /// isStartBtn
+                    self.checkIfIsStsrtBtn()
                 }
             }
         }
