@@ -15,18 +15,20 @@ class Employer: NSObject {
     var password: String
     var firstName: String
     var lastName: String
+    var businessName: String
     var location: CLLocationCoordinate2D
     
-    init(email: String, password: String, firstName: String, lastName: String, location: CLLocationCoordinate2D) {
+    init(email: String, password: String, firstName: String, lastName: String, businessName: String, location: CLLocationCoordinate2D) {
         self.email = email
         self.password = password
         self.firstName = firstName
         self.lastName = lastName
+        self.businessName = businessName
         self.location = location
     }
     
     func show() {
-        print("Employer [email = \(email), password = \(password), firstName = \(firstName), lastName = \(lastName), location = \(location)]")
+        print("Employer [email = \(email), password = \(password), firstName = \(firstName), lastName = \(lastName), businessName = \(businessName) location = \(location)]")
     }
     
     

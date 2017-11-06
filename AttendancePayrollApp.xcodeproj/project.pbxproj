@@ -16,6 +16,7 @@
 		D314EAC91FA88B2E003107EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D314EAC81FA88B2E003107EB /* Assets.xcassets */; };
 		D314EACC1FA88B2E003107EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D314EACA1FA88B2E003107EB /* LaunchScreen.storyboard */; };
 		D348FC511FAF8A0F007A550B /* BusinessLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D348FC501FAF8A0F007A550B /* BusinessLocationViewController.swift */; };
+		D35E3CF41FAFF29200A91862 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D35E3CF31FAFF29200A91862 /* GoogleService-Info.plist */; };
 		D36298021FA93EB800C82F88 /* EmployerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */; };
 		D36298041FA93EDF00C82F88 /* WorkerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36298031FA93EDF00C82F88 /* WorkerMenuViewController.swift */; };
 		D3A17B7F1FAA2FBA0021F0CD /* NamePayrollHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A17B7E1FAA2FBA0021F0CD /* NamePayrollHistoryViewController.swift */; };
@@ -41,6 +42,7 @@
 		D314EACB1FA88B2E003107EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D314EACD1FA88B2E003107EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D348FC501FAF8A0F007A550B /* BusinessLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLocationViewController.swift; sourceTree = "<group>"; };
+		D35E3CF31FAFF29200A91862 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D36298011FA93EB800C82F88 /* EmployerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployerMenuViewController.swift; sourceTree = "<group>"; };
 		D36298031FA93EDF00C82F88 /* WorkerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerMenuViewController.swift; sourceTree = "<group>"; };
 		D3A17B7E1FAA2FBA0021F0CD /* NamePayrollHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePayrollHistoryViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		D314EAB21FA88B2E003107EB = {
 			isa = PBXGroup;
 			children = (
+				D35E3CF31FAFF29200A91862 /* GoogleService-Info.plist */,
 				D314EABD1FA88B2E003107EB /* AttendancePayrollApp */,
 				D314EABC1FA88B2E003107EB /* Products */,
 				70524F96B03B74F6A0731FE3 /* Pods */,
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D314EACC1FA88B2E003107EB /* LaunchScreen.storyboard in Resources */,
+				D35E3CF41FAFF29200A91862 /* GoogleService-Info.plist in Resources */,
 				D314EAC91FA88B2E003107EB /* Assets.xcassets in Resources */,
 				D314EAC41FA88B2E003107EB /* Main.storyboard in Resources */,
 			);
@@ -222,11 +226,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AttendancePayrollApp/Pods-AttendancePayrollApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

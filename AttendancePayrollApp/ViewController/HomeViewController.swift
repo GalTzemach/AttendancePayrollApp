@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+import FirebaseFirestore
+
 
 class HomeViewController: UIViewController {
 
@@ -17,24 +21,15 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        designField()
         
         /// delete
-        emailField.text? = "a"
-        passwordField.text? = "a"
+        emailField.text? = "talzemah1@gmail.com"
+        passwordField.text? = "123456"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func designField() {
-//        let borderColor = UIColor.darkGray
-//        emailField.layer.borderColor = borderColor.cgColor
-//        emailField.layer.borderWidth = 1.5
-//        emailField.layer.cornerRadius = 20
     }
     
     // Actions - (buttons clicked)
@@ -47,22 +42,24 @@ class HomeViewController: UIViewController {
             self.view.makeToast("There is empty field/s", duration: 1.5, position: .center)
 
         } else {
-            if signIn() {
-                // Sign in success.
-                if isWorker() {
-                    // Worker mode
-                    let WorkerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "WorkerMenuVC") as! WorkerMenuViewController
-                    navigationController?.pushViewController(WorkerMenuVC,animated: true)
-                    
-                } else {
-                    // Employer mode
-                    let EmployerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "EmployerMenuVC") as! EmployerMenuViewController
-                    navigationController?.pushViewController(EmployerMenuVC,animated: true)
-                }
-            } else {
-                // Sign in failed.
-                self.view.makeToast("Sign in failed, try again!", duration: 1.5, position: .center)
-            }
+            
+            signIn()
+//            if signIn() {
+//                // Sign in success.
+//                if isWorker() {
+//                    // Worker mode
+//                    let WorkerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "WorkerMenuVC") as! WorkerMenuViewController
+//                    navigationController?.pushViewController(WorkerMenuVC,animated: true)
+//
+//                } else {
+//                    // Employer mode
+//                    let EmployerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "EmployerMenuVC") as! EmployerMenuViewController
+//                    navigationController?.pushViewController(EmployerMenuVC,animated: true)
+//                }
+//            } else {
+//                // Sign in failed.
+//                self.view.makeToast("Sign in failed, try again!", duration: 1.5, position: .center)
+//            }
         }
     }
     
@@ -71,22 +68,48 @@ class HomeViewController: UIViewController {
         passwordField.text?.removeAll()
     }
     
-    func signIn() -> Bool {
+    func signIn() {
         clearAllFields()
-
         self.view.makeToastActivity(.center)
-        /// Try sign in.
-        self.view.hideToastActivity()
 
-        return true
+        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
+            if user != nil
+            {
+                // Sign in success
+                ///self.view.hideToastActivity()
+                print("SUCCESSFUL sign in")
+                self.isWorkerOrEmployer()
+                
+            }
+            else
+            {
+                if let myEror = error?.localizedDescription
+                {
+                    print(myEror)
+                }
+                
+                // Sign in failed
+                self.view.hideToastActivity()
+                self.view.makeToast("Sign in failed, try again!", duration: 1.5, position: .center)
+            }
+        })
     }
     
-    func isWorker() -> Bool {
-        self.view.makeToastActivity(.center)
+    func isWorkerOrEmployer() {
         
+        ///db
         self.view.hideToastActivity()
-        return true
+
+        // Worker mode
+        let WorkerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "WorkerMenuVC") as! WorkerMenuViewController
+        navigationController?.pushViewController(WorkerMenuVC,animated: true)
+        
+   
+        // Employer mode
+//        let EmployerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "EmployerMenuVC") as! EmployerMenuViewController
+//        navigationController?.pushViewController(EmployerMenuVC,animated: true)
     }
+    
     
     
 }
