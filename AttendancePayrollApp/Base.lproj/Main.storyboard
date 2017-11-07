@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jT4-d1-Ehq">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="jT4-d1-Ehq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tsh-L4-epe">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -30,11 +30,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeVC" title="Sign up" id="qLo-lA-QQN" customClass="HomeViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ctz-aK-ocs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-bt-o1H">
-                                <rect key="frame" x="16" y="508" width="288" height="40"/>
+                                <rect key="frame" x="16" y="607" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="F3n-Ar-YSO"/>
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97x-sL-jve">
-                                <rect key="frame" x="16" y="114" width="288" height="40"/>
+                                <rect key="frame" x="16" y="114" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="WcA-bL-XJc"/>
                                 </constraints>
@@ -58,7 +58,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3S-dw-8wS">
-                                <rect key="frame" x="16" y="169" width="288" height="40"/>
+                                <rect key="frame" x="16" y="169" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fyu-MT-n6g"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEM-to-Wmz">
-                                <rect key="frame" x="16" y="259" width="288" height="40"/>
+                                <rect key="frame" x="16" y="259" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="p9b-3f-BTI"/>
@@ -120,17 +120,17 @@
             <objects>
                 <viewController storyboardIdentifier="BusinessLocationVC" title="Business location" id="xxH-Ct-BmO" customClass="BusinessLocationViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Business location" id="6fa-Td-kZt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCW-sD-ffE">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
                                     <outlet property="delegate" destination="xxH-Ct-BmO" id="Mc6-wW-3cI"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DG-3E-W4I">
-                                <rect key="frame" x="92.5" y="513" width="135" height="35"/>
+                                <rect key="frame" x="120" y="612" width="135" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Select location"/>
                                 <connections>
@@ -162,11 +162,11 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpVC" title="Sign up" id="l0v-Wn-Ymp" customClass="SignUpViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gdO-Wl-Rjd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0a-AD-iBF">
-                                <rect key="frame" x="16" y="508" width="288" height="40"/>
+                                <rect key="frame" x="16" y="607" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bG7-tk-Ftb"/>
@@ -180,7 +180,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k08-TK-Wai">
-                                <rect key="frame" x="16" y="114" width="288" height="40"/>
+                                <rect key="frame" x="16" y="114" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Rwg-Sf-51Q"/>
                                 </constraints>
@@ -189,7 +189,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzc-Dq-80u">
-                                <rect key="frame" x="16" y="169" width="288" height="40"/>
+                                <rect key="frame" x="16" y="169" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Swd-LB-xkB"/>
                                 </constraints>
@@ -198,7 +198,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gus-Te-GAB">
-                                <rect key="frame" x="16" y="224" width="288" height="40"/>
+                                <rect key="frame" x="16" y="224" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="39f-Nq-EmB"/>
                                 </constraints>
@@ -207,7 +207,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Business name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chD-cy-La8">
-                                <rect key="frame" x="16" y="334" width="288" height="40"/>
+                                <rect key="frame" x="16" y="334" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Uqw-TZ-7HS"/>
                                 </constraints>
@@ -216,7 +216,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xBe-Hh-Z3x">
-                                <rect key="frame" x="16" y="279" width="288" height="40"/>
+                                <rect key="frame" x="16" y="279" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="GwC-qG-wAY"/>
                                 </constraints>
@@ -225,7 +225,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="family-name"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lly-oI-Zsu">
-                                <rect key="frame" x="16" y="389" width="288" height="40"/>
+                                <rect key="frame" x="16" y="389" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Tuc-Ic-7oG"/>
                                 </constraints>
@@ -286,14 +286,14 @@
             <objects>
                 <viewController storyboardIdentifier="WorkerMenuVC" title="Worker menu" id="UVj-Ox-wme" customClass="WorkerMenuViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KWB-rc-Re2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naJ-fj-mJc">
-                                <rect key="frame" x="16" y="114" width="288" height="72"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="16" y="114" width="343" height="72"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <state key="normal" title="Start / Stop">
+                                <state key="normal" title="Loading...">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -301,7 +301,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZW-KV-Dlk">
-                                <rect key="frame" x="16" y="336" width="288" height="40"/>
+                                <rect key="frame" x="16" y="336" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d4k-v2-uEH"/>
@@ -315,7 +315,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I64-RV-Mzn">
-                                <rect key="frame" x="16" y="396" width="288" height="40"/>
+                                <rect key="frame" x="16" y="396" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rT8-a9-4Kb"/>
@@ -329,7 +329,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-3X-kPo">
-                                <rect key="frame" x="16" y="498" width="288" height="40"/>
+                                <rect key="frame" x="16" y="597" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hXS-nl-XKq"/>
@@ -343,7 +343,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tC-6e-fkW">
-                                <rect key="frame" x="16" y="206" width="288" height="60"/>
+                                <rect key="frame" x="16" y="206" width="343" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -390,11 +390,11 @@
             <objects>
                 <viewController storyboardIdentifier="EmployerMenuVC" title="Employer menu" id="lmV-FV-wzv" customClass="EmployerMenuViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4AD-JM-YUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-Ee-r9O">
-                                <rect key="frame" x="16" y="114" width="288" height="40"/>
+                                <rect key="frame" x="16" y="114" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oG7-Tc-sE4"/>
@@ -408,7 +408,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q7-Sr-TXX">
-                                <rect key="frame" x="16" y="184" width="288" height="40"/>
+                                <rect key="frame" x="16" y="184" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ndS-5B-PrA"/>
@@ -422,7 +422,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2O-C5-IAi">
-                                <rect key="frame" x="16" y="254" width="288" height="40"/>
+                                <rect key="frame" x="16" y="254" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="n1q-SM-Iob"/>
@@ -436,7 +436,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDe-dK-D6G">
-                                <rect key="frame" x="16" y="508" width="288" height="40"/>
+                                <rect key="frame" x="16" y="607" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wZU-zq-gLV"/>
@@ -486,11 +486,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddWokerVC" title="Add worker" id="XR6-Zg-Djb" customClass="AddWorkerViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bV2-TD-TP5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd7-eo-PyC">
-                                <rect key="frame" x="16" y="508" width="288" height="40"/>
+                                <rect key="frame" x="16" y="607" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="HK3-IN-2Wd"/>
@@ -504,7 +504,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Cb-7q-KZ4">
-                                <rect key="frame" x="16" y="204" width="288" height="40"/>
+                                <rect key="frame" x="16" y="204" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="x4h-8i-VTP"/>
                                 </constraints>
@@ -513,7 +513,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payment per hour:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gea-ig-1ei">
-                                <rect key="frame" x="16" y="314" width="288" height="40"/>
+                                <rect key="frame" x="16" y="314" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dod-fK-IoD"/>
                                 </constraints>
@@ -522,7 +522,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cby-t9-Ooi">
-                                <rect key="frame" x="16" y="259" width="288" height="40"/>
+                                <rect key="frame" x="16" y="259" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dpf-6O-ipa"/>
                                 </constraints>
@@ -531,16 +531,16 @@
                                 <textInputTraits key="textInputTraits" textContentType="family-name"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Static location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOK-4V-aaQ">
-                                <rect key="frame" x="16" y="369" width="209" height="21"/>
+                                <rect key="frame" x="16" y="369" width="264" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-gy-xCL">
-                                <rect key="frame" x="255" y="369" width="51" height="31"/>
+                                <rect key="frame" x="310" y="369" width="51" height="31"/>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiQ-ZY-Dmi">
-                                <rect key="frame" x="16" y="94" width="288" height="40"/>
+                                <rect key="frame" x="16" y="94" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="MFS-Lr-dg6"/>
                                 </constraints>
@@ -549,7 +549,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxE-Vm-Mty">
-                                <rect key="frame" x="16" y="149" width="288" height="40"/>
+                                <rect key="frame" x="16" y="149" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="YmT-l8-7Ji"/>
                                 </constraints>
@@ -595,7 +595,7 @@
                     <connections>
                         <outlet property="emailField" destination="PiQ-ZY-Dmi" id="lYL-k4-8s4"/>
                         <outlet property="firstNameField" destination="1Cb-7q-KZ4" id="NPu-q9-81X"/>
-                        <outlet property="isStaticLocation" destination="4Li-gy-xCL" id="cwg-iQ-P6K"/>
+                        <outlet property="isStaticLocationField" destination="4Li-gy-xCL" id="cwg-iQ-P6K"/>
                         <outlet property="lastNameField" destination="Cby-t9-Ooi" id="v4U-M1-xps"/>
                         <outlet property="passwordField" destination="wxE-Vm-Mty" id="sIa-3D-LL8"/>
                         <outlet property="paymentPerHourField" destination="gea-ig-1ei" id="OBu-Zo-AY1"/>
@@ -610,18 +610,18 @@
             <objects>
                 <viewController storyboardIdentifier="NamePayrollHistoryVC" title="Name payroll history" id="4k3-hZ-9Zf" customClass="NamePayrollHistoryViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="54V-zZ-rZG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VNP-WY-g6G">
-                                <rect key="frame" x="16" y="94" width="288" height="444"/>
+                                <rect key="frame" x="16" y="94" width="343" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="paycheckCell" id="rQ5-3n-TVg">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rQ5-3n-TVg" id="hYi-Vz-eTL">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -643,6 +643,7 @@
                         <viewLayoutGuide key="safeArea" id="c4q-B1-omx"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="VNP-WY-g6G" id="8gP-ZF-amh"/>
                         <segue destination="6Sl-9k-MpN" kind="show" identifier="fromNamePayrollToDatePaycheckSegue" id="JtU-8S-6E0"/>
                     </connections>
                 </viewController>
@@ -655,18 +656,18 @@
             <objects>
                 <viewController storyboardIdentifier="DatePatcheckVC" title="Date paycheck" id="6Sl-9k-MpN" customClass="DatePaycheckViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wDy-eV-nNO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3IQ-1S-xCc">
-                                <rect key="frame" x="16" y="94" width="288" height="374"/>
+                                <rect key="frame" x="16" y="94" width="343" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dayCell" id="6hu-6j-hLl">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6hu-6j-hLl" id="XKJ-p2-HKE">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -677,9 +678,12 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWa-Pg-Sgm">
-                                <rect key="frame" x="77" y="488" width="166" height="35"/>
+                                <rect key="frame" x="104.5" y="587" width="166" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Confirm paycheck"/>
+                                <connections>
+                                    <action selector="confirmPaycheckClicked:" destination="6Sl-9k-MpN" eventType="touchUpInside" id="MTE-H8-Z6p"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -695,7 +699,7 @@
                         <viewLayoutGuide key="safeArea" id="8zk-bN-3oU"/>
                     </view>
                     <connections>
-                        <outlet property="okBtn" destination="dWa-Pg-Sgm" id="4nX-dQ-Qnl"/>
+                        <outlet property="ConfirmPaycheckBtn" destination="dWa-Pg-Sgm" id="4nX-dQ-Qnl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v38-AI-t9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -707,18 +711,18 @@
             <objects>
                 <viewController storyboardIdentifier="PayrollHistoryVC" title="Payroll history" id="RWC-2f-7Gn" customClass="PayrollHistoryViewController" customModule="AttendancePayrollApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f2y-Bw-4b3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ECF-YG-nMl">
-                                <rect key="frame" x="16" y="94" width="288" height="444"/>
+                                <rect key="frame" x="16" y="94" width="343" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="workerCell" id="I2O-nV-YMB">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2O-nV-YMB" id="AHK-7F-BxC">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -740,6 +744,7 @@
                         <viewLayoutGuide key="safeArea" id="r5Q-I5-925"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="ECF-YG-nMl" id="NQx-zW-SoK"/>
                         <segue destination="4k3-hZ-9Zf" kind="show" identifier="fromPayrollToWorkerPayrollSegue" id="7tD-a8-x7d"/>
                     </connections>
                 </viewController>
@@ -750,8 +755,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VkC-Lu-f9t"/>
-        <segue reference="6oX-jG-X6x"/>
-        <segue reference="RUd-go-7VT"/>
+        <segue reference="JtU-8S-6E0"/>
+        <segue reference="7tD-a8-x7d"/>
         <segue reference="gK7-YA-QPp"/>
         <segue reference="W4j-Oz-6O1"/>
     </inferredMetricsTieBreakers>

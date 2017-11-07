@@ -101,11 +101,11 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
                 
                 if !(doc?.exists)! {
                     self.isStartBtn = true
-                } else if doc?.data() != nil && doc?.data().count == 1{
-                    self.isStartBtn = false
-                } else if doc?.data().count == 2 {
+                } else if doc?.data() != nil && doc?.data().count == 2{
                     self.isStartBtn = false
                     self.StartStopBtn.isEnabled = false
+                } else if doc?.data().count == 1 {
+                    self.isStartBtn = false
                 }
                 
                 self.showAppropriateButton()
@@ -174,39 +174,22 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
                     }
                         
                     else{
-                        self.view.makeToast("Shift starting...", duration: 1.5, position: .center)
+                        db.collection("workers").document((Auth.auth().currentUser?.uid)!).collection("paychecks").document("\(year!) "+"\(month!)").setData(["isClose": false], completion: { (err) in
+                            if let err = err{
+                                print(err.localizedDescription)
+                            }
+                            else{
+                                print("okkkkkkkkk")
+                                self.view.makeToast("Shift starting...", duration: 1.5, position: .center)
+                            }
+                        })
                     }
                 }
                 
             }
             
             
-            
-//            else {
-//                for d in (doc?.data())!{
-//                    if d.key == "location"{
-//                        let location = d.value as! CLLocation
-//
-//                        let distnce = self.userLocation.distance(from: location)
-//                        /// print("Distance = \(distnce)")
-//
-//                        if distnce < 500 {
-//
-//                            // Change button state.
-//                            self.StartStopBtn.setTitle("Stop", for: .normal)
-//                            self.StartStopBtn.backgroundColor = UIColor.red
-//                            self.isStartBtn = false
-//
-//                            // Start timer
-//                            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
-//
-//                        } else {
-//                            self.view.makeToast("You must be in your workplace location to start a shift", duration: 2, position: .center)
-//                        }
-//                        break
-//                    }
-//                }
-//            }
+
         }
     }
     
@@ -246,14 +229,12 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         if segue.identifier == "fromWorkerMenuToNamePayrollHistorySegue" {
             let namePayrollHistoryVC = segue.destination as! NamePayrollHistoryViewController
             namePayrollHistoryVC.uid = (Auth.auth().currentUser?.uid)!
-            namePayrollHistoryVC.paycheckArr = paycheckArr
+            namePayrollHistoryVC.dateArr = paycheckArr
         }
         
         if segue.identifier == "fromWorkerMenuToDataPaycheckSegue" {
             let destinationVC = segue.destination as! DatePaycheckViewController
             destinationVC.dayArr = dayArr
-//            destinationVC.uid = (Auth.auth().currentUser?.uid)!
-//            destinationVC.paycheckArr = paycheckArr
         }
     }
     
@@ -262,8 +243,8 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         var arr = [String]()
         
         self.view.makeToastActivity(.center)
-
-        db.collection("workers/\((Auth.auth().currentUser?.uid)!)/paychecks").whereField("isClose", isEqualTo: true).getDocuments { (querySnapshot, err) in
+        
+        db.collection("workers/\(Auth.auth().currentUser!.uid)/paychecks").whereField("isClose", isEqualTo: true).getDocuments { (querySnapshot, err) in
 
             self.view.hideToastActivity()
 
@@ -333,20 +314,38 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
                                 
                                 for doc in (docs?.documents)!{
                                     
-                                    var start: String = ""
-                                    var end: String = ""
+                                    var start: Date = Date()
+                                    var end: Date = Date()
                                     
                                     for l in doc.data(){
                                         if l.key == "start"{
-                                            start = l.value as! String
+                                            start = l.value as! Date
                                         }
                                         if l.key == "end"{
-                                            end = l.value as! String
+                                            end = l.value as! Date
                                         }
                                         
                                     }
+                                    var tempDay = doc.documentID + "/"
                                     
-                                    self.dayArr.append("\(doc.documentID) \(start) - \(end)")
+                                    let calendar = Calendar.current
+                                    var components = calendar.dateComponents([.hour, .minute, .second, .month], from: start)
+                                    
+                                    tempDay += String(describing: components.month!) + "   "
+                                    
+                                    var hour =  components.hour
+                                    var minute = components.minute
+                                    var second = components.second
+                                    tempDay += String(describing: hour!) + ":" + String(describing: minute!) + ":" + String(describing: second!)
+                                    
+                                    components = calendar.dateComponents([.hour, .minute, .second], from: end)
+                                    hour =  components.hour
+                                    minute = components.minute
+                                    second = components.second
+                                    tempDay += " - " + String(describing: hour!) + ":" + String(describing: minute!) + ":" + String(describing: second!)
+                                    
+                                    
+                                    self.dayArr.append(tempDay)
                                    
                                     count = count! - 1
                                     if count == 0 {
@@ -390,11 +389,6 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             self.view.makeToastActivity(.center)
             let db = Firestore.firestore()
-            
-            // Change button state.
-            StartStopBtn.setTitle("Start", for: .normal)
-            StartStopBtn.backgroundColor = UIColor.green
-            isStartBtn = true
             
             // Stop timer
             timer.invalidate()

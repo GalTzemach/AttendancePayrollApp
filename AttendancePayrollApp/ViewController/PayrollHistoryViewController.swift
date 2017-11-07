@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
-class PayrollHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PayrollHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SendDataBackDelegate{
     
     var payrollArr = [String]()
+    var uidArr = [String]()
+    var dateArr = [String]()
     var currentIndex = -1
     var unconfirmedMode = false
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return payrollArr.count
@@ -28,39 +34,66 @@ class PayrollHistoryViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
         currentIndex = indexPath.row
-        performSegue(withIdentifier: "fromPayrollToWorkerPayrollSegue", sender: self)
+        getPaychecks(isClose: !unconfirmedMode)
+        /// performSegue(withIdentifier: "fromPayrollToWorkerPayrollSegue", sender: self)
     }
+    
+    func dataIsReady(info: String) {
+        payrollArr.remove(at: currentIndex)
+        tableView.reloadData()
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fromPayrollToWorkerPayrollSegue") {
             let destinationVc = segue.destination as! NamePayrollHistoryViewController
-            destinationVc.uid = payrollArr[currentIndex]
             destinationVc.unconfirmedMode = unconfirmedMode
+            destinationVc.uid = uidArr[currentIndex]
+            destinationVc.dateArr = dateArr
+            destinationVc.userName = payrollArr[currentIndex]
+            destinationVc.delegate = self
         }
     }
     
+    
+    func getPaychecks(isClose: Bool) {
+        let db = Firestore.firestore()
+        dateArr = [String]()
+        
+        self.view.makeToastActivity(.center)
+        db.collection("workers/\(uidArr[currentIndex])/paychecks").whereField("isClose", isEqualTo: isClose).getDocuments { (docs, err) in
+            
+            self.view.hideToastActivity()
+            if let err = err {
+                print("Error getting documents: \(err)")
+            }
+            
+            else {
+                var docsCounter = docs?.count
+                
+                for doc in (docs?.documents)!{
+                    docsCounter = docsCounter! - 1
+                    self.dateArr.append(doc.documentID)
+                    
+                    if docsCounter == 0 {
+                        
+                        self.performSegue(withIdentifier: "fromPayrollToWorkerPayrollSegue", sender: self)
+                    }
+                }
+            }
+        }
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if getAllPayrollHistory() {
-            print(" ")
-        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func getAllPayrollHistory() -> Bool {
-        self.view.makeToastActivity(.center)
-        /// get info.
-        /// info appropriate to unconfirmed mode.
-        payrollArr = ["Worker 1", "Worker 2", "Worker 3", "Worker 4", "Worker 5"]
-        self.view.hideToastActivity()
-        return true
-    }
-    
     
 
 }

@@ -8,9 +8,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class EmployerMenuViewController: UIViewController {
 
+    var uidArr = [String]()
+    var nameArr = [String]()
+    
     var unconfirmedMode = false
     
     override func viewDidLoad() {
@@ -27,8 +31,113 @@ class EmployerMenuViewController: UIViewController {
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fromEmployerMenuToPayrollHistorySegue") {
-            let destinationVc = segue.destination as! PayrollHistoryViewController
-            destinationVc.unconfirmedMode = unconfirmedMode ? true : false
+            let destVC = segue.destination as! PayrollHistoryViewController
+            destVC.unconfirmedMode = unconfirmedMode ? true : false
+            destVC.payrollArr = nameArr
+            destVC.uidArr = uidArr
+        }
+    }
+    
+    func getAllPayrollHistoryFromDB(isClose: Bool) {
+        
+        let db = Firestore.firestore()
+        
+        uidArr = [String]()
+        nameArr = [String]()
+        
+        self.view.makeToastActivity(.center)
+        
+        // Retrieve all the names of employees who have a closed paycheck/s
+        
+        // Get all workers
+        db.collection("workers").getDocuments() { (querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+                self.view.hideToastActivity()
+                self.view.makeToast("Getting document workers failed", duration: 1.5, position: .center)
+            }
+            
+            else {
+                var uidCounter = querySnapshot?.count
+                
+                if uidCounter == 0 {
+                    self.view.hideToastActivity()
+                    self.view.makeToast("There is no data to show", duration: 1.5, position: .center)
+                }
+                
+                for document in querySnapshot!.documents {
+                    // Check each worker if he has a closed paycheck
+                    db.collection("workers/\(document.documentID)/paychecks").whereField("isClose", isEqualTo: isClose).getDocuments(completion: { (querySnapshot, err) in
+                        
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                            self.view.hideToastActivity()
+                            self.view.makeToast("Getting document workers failed", duration: 1.5, position: .center)
+                        }
+                        
+                        else {
+                            
+                            if (querySnapshot?.documents.count)! > 0 {
+                                // Add uid to the set
+                                //uidSet.insert(document.documentID)
+                                self.uidArr.append(document.documentID)
+                            }
+                        }
+                        // Ensure the completion of all asynchronous iterations
+                        uidCounter! -= 1
+                        if uidCounter == 0{
+                            
+                            // Get a name for each uid from the set
+                            var counter =  self.uidArr.count
+                            if counter > 0 {
+                            for UID in self.uidArr{
+                                db.collection("allUsers").document("\(UID)").getDocument(completion: { (querySnapshot, err) in
+                                   
+                                    if let err = err {
+                                        print("Error getting documents: \(err)")
+                                        self.view.hideToastActivity()
+                                        self.view.makeToast("Getting document workers failed", duration: 1.5, position: .center)
+                                    }
+                                    
+                                    else {
+                                        
+                                        var first = ""
+                                        var last = ""
+                                        
+                                        for element in (querySnapshot?.data())!{
+                                            
+                                            if element.key == "firstName"{
+                                                first = element.value as! String
+                                            }
+                                            if element.key == "lastName"{
+                                                last = element.value as! String
+                                            }
+                                            
+                                            if first != "" && last != ""{
+                                                self.nameArr.append("\(first) \(last)")
+                                                break
+                                            }
+                                        }
+                                    }
+                                    counter = counter - 1
+                                    if counter == 0{
+                                        // Get all data success.
+                                        self.view.hideToastActivity()
+                                        self.performSegue(withIdentifier: "fromEmployerMenuToPayrollHistorySegue", sender: self)
+
+                                    }
+                                })
+                            }
+                            }
+                            else{
+                                self.view.hideToastActivity()
+                                self.view.makeToast("There is no data to show", duration: 1.5, position: .center)
+                            }
+                        }
+                    })
+                }
+            }
         }
     }
     
@@ -43,12 +152,14 @@ class EmployerMenuViewController: UIViewController {
     
     @IBAction func payrollHistoryClicked(_ sender: Any) {
         unconfirmedMode = false
-        performSegue(withIdentifier: "fromEmployerMenuToPayrollHistorySegue", sender: self)
+        getAllPayrollHistoryFromDB(isClose: true)
     }
     
     @IBAction func UnconfirmedPayrollClicked(_ sender: Any) {
         unconfirmedMode = true
-        performSegue(withIdentifier: "fromEmployerMenuToPayrollHistorySegue", sender: self)
+        getAllPayrollHistoryFromDB(isClose: false)
+
+        ///performSegue(withIdentifier: "fromEmployerMenuToPayrollHistorySegue", sender: self)
     }
     
 

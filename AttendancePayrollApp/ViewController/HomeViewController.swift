@@ -20,11 +20,58 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if isConnect(){
+            isEmployer()
+        }
+        
         /// delete
-        ///emailField.text = "gal@gmail.com"
-        ///passwordField.text = "123456"
+        emailField.text = "tal1@gmail.com"
+        passwordField.text = "123456"
+    }
+    
+    func isConnect() -> Bool{
+        if Auth.auth().currentUser == nil{
+            return false
+        }
+        else{
+            return true
+        }
+    }
+    
+    func isEmployer(){
+        let db = Firestore.firestore()
+        self.view.makeToastActivity(.center)
+        
+        db.collection("allUsers").document((Auth.auth().currentUser?.uid)!).getDocument { (documentSnapshot, error) in
+            
+            self.view.hideToastActivity()
+            
+            if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                for elm in documentSnapshot!.data(){
+                    if elm.key == "isEmployer"{
+                        if elm.value as! Bool == true{
+                            //employer page
+                            self.performSegue(withIdentifier: "fromHomeToEmployerMenuSegue", sender: self)
+                        }
+                        else{
+                            //worker page
+                            self.performSegue(withIdentifier: "fromHomeToWorkerMenuSegue", sender: self)
+
+                        }
+                    }
+                }
+            }
+        }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        /// delete
+        emailField.text = "talzemah1@gmail.com"
+        passwordField.text = "123456"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -105,6 +152,5 @@ class HomeViewController: UIViewController {
         }
     }
  
-    
     
 }

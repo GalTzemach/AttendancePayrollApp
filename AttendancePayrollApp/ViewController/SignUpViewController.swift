@@ -27,11 +27,11 @@ class SignUpViewController: UIViewController, DataReadyDelegate {
         super.viewDidLoad()
         
         /// delete
-//        emailField.text = "talzemah1@gmail.com"
-//        passwordField.text = "123456"
-//        firstNameField.text = "Tal"
-//        lastNameField.text = "Zemah"
-//        businessNameField.text = "TalZemahPlace"
+        emailField.text = "talzemah1@gmail.com"
+        passwordField.text = "123456"
+        firstNameField.text = "Tal"
+        lastNameField.text = "Zemah"
+        businessNameField.text = "TalZemahPlace"
 
     }
 
@@ -54,6 +54,7 @@ class SignUpViewController: UIViewController, DataReadyDelegate {
     
     func registerEmployerToDB(employer: Employer) {
         self.view.makeToastActivity(.center)
+        
         Auth.auth().createUser(withEmail: employer.email, password: employer.password, completion: { (user, error) in
             if user != nil
             {
@@ -61,12 +62,16 @@ class SignUpViewController: UIViewController, DataReadyDelegate {
                 let db = Firestore.firestore()
 
                 db.document("allUsers/" + (user?.uid)!).setData(["businessId" : employer.businessName, "isEmployer" : true,  "email" : (user?.email)!, "firstName" : employer.businessName, "lastName" : employer.lastName, "location" : ["lati":employer.location.latitude, "long":employer.location.longitude]], options: SetOptions.merge(), completion: { (error) in
+                    
+                    self.view.hideToastActivity()
+                    
                     if let err = error{
                         print(err.localizedDescription)
-                    }
-                    else{
-                        self.view.hideToastActivity()
+                        self.view.makeToast("register failed, try again!", duration: 1.5, position: .center)
+                        
+                    } else {
                         self.navigationController?.popViewController(animated: true)
+                        
                     }
                 })
             }
@@ -77,7 +82,7 @@ class SignUpViewController: UIViewController, DataReadyDelegate {
                     print(myEror)
                 }
                 self.view.hideToastActivity()
-                self.view.makeToast("Register failed, try again..", duration: 1.5, position: .center)
+                self.view.makeToast("User already exist, try again!", duration: 1.5, position: .center)
 
             }
         })

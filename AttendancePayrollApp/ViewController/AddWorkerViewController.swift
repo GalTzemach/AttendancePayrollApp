@@ -18,18 +18,18 @@ class AddWorkerViewController: UIViewController {
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var paymentPerHourField: UITextField!
-    @IBOutlet weak var isStaticLocation: UISwitch!
+    @IBOutlet weak var isStaticLocationField: UISwitch!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         /// temp
-//        emailField.text = "gal@gmail.com"
-//        passwordField.text = "123456"
-//        firstNameField.text = "Gal"
-//        lastNameField.text = "Zemah"
-//        paymentPerHourField.text = "45.5"
+        emailField.text = "tal@gmail.com"
+        passwordField.text = "123456"
+        firstNameField.text = "Tal"
+        lastNameField.text = "Zemah"
+        paymentPerHourField.text = "75.5"
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,8 @@ class AddWorkerViewController: UIViewController {
             self.view.makeToast("There is empty field/s", duration: 1.5, position: .center)
             
         } else {
-            addWorker()
+            let tempWoeker = Worker.init(email: emailField.text!, password: passwordField.text!, firstName: firstNameField.text!, lastName: lastNameField.text!, paymentPerHour: Float(paymentPerHourField.text!)!, isStaticLocation: isStaticLocationField.isOn)
+            addWorker(worker: tempWoeker)
         }
     }
     
@@ -51,19 +52,17 @@ class AddWorkerViewController: UIViewController {
         return (emailField.text!.isEmpty || passwordField.text!.isEmpty || firstNameField.text!.isEmpty || lastNameField.text!.isEmpty || paymentPerHourField.text!.isEmpty);
     }
     
-    func addWorker() {
+    func addWorker(worker: Worker) {
         self.view.makeToastActivity(.center)
         let db = Firestore.firestore()
-        
         let employerUid = Auth.auth().currentUser?.uid
         
         // Create new worker to DB.
-        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!, completion: { (user, error) in
+        Auth.auth().createUser(withEmail: worker.email, password: worker.password, completion: { (user, error) in
             if user != nil
             {
-                print("SUCCESSFUL: New user created")
-                
                 db.collection("allUsers").document(employerUid!).getDocument(completion: { (doc, err) in
+                    
                     if let err = err {
                         print(err.localizedDescription)
                         self.view.hideToastActivity()
@@ -71,13 +70,12 @@ class AddWorkerViewController: UIViewController {
                         
                     }
                     else{
-                        for d in (doc?.data())! {
-                            if d.key == "businessId"{
-                                let bid = d.value
+                        for pair in (doc?.data())! {
+                            if pair.key == "businessId"{
+                                let bid = pair.value
                                 
                                 // Add new worker to allUsers
-                                print("uid= ", (user?.uid)!)
-                                db.document("allUsers/" + (user?.uid)!).setData(["businessId" : bid, "isEmployer" : false,  "email" : self.emailField.text!, "firstName" : self.firstNameField.text!, "lastName" : self.lastNameField.text!, "paymentPerHour" : self.paymentPerHourField.text!], options: SetOptions.merge(), completion: { (error) in
+                                db.document("allUsers/" + (user?.uid)!).setData(["businessId" : bid, "isEmployer" : false,  "email" : worker.email, "firstName" : worker.firstName, "lastName" : worker.lastName, "paymentPerHour" : worker.paymentPerHour, "isStaticLocation" : worker.isStaticLocation], options: SetOptions.merge(), completion: { (error) in
                                     
                                     if let err = error {
                                         print(err.localizedDescription)
@@ -85,24 +83,23 @@ class AddWorkerViewController: UIViewController {
                                         self.view.makeToast("Add worker failed, try again!", duration: 1.5, position: .center)
                                         
                                     } else{
-                                        print("SUCCESSFUL: Add new worker to allUsers")
-                                        
                                         // Create new documet for the new worker
                                         db.collection("workers").document((user?.uid)!).setData(["createdAt" : FieldValue.serverTimestamp()], completion: { (error) in
+                                            
+                                            self.view.hideToastActivity()
+
                                             if let err = error {
                                                 print(err.localizedDescription)
-                                                self.view.hideToastActivity()
                                                 self.view.makeToast("Add worker failed, try again!", duration: 1.5, position: .center)
-                                                self.signInAgain()
                                                 
                                             } else {
-                                                print("SUCCESSFUL: Create new documet for the new worker")
-                                                self.signInAgain()
-                                                
+                                                // Add worker success.
                                             }
+                                            self.signInAgain()
                                         })
                                     }
                                 })
+                                break
                             }
                         }
                     }
@@ -115,9 +112,9 @@ class AddWorkerViewController: UIViewController {
                     print(myEror)
                 }
                 
-                // Add worker failed.
+                // Add user for worker failed.
                 self.view.hideToastActivity()
-                self.view.makeToast("This worker already exist, try again!", duration: 1.5, position: .center)
+                self.view.makeToast("Worker already exist, try again!", duration: 1.5, position: .center)
             }
         })
     }
@@ -142,11 +139,10 @@ class AddWorkerViewController: UIViewController {
                 {
                     print(myEror)
                 }
-                self.view.makeToast("Add worker failed, try again!", duration: 1.5, position: .center)
+                self.view.makeToast("Sign in failed, try again!", duration: 1.5, position: .center)
             }
         })
     }
-    
    
     
 }
