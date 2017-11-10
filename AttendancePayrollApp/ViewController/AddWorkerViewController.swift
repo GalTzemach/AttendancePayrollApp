@@ -25,11 +25,11 @@ class AddWorkerViewController: UIViewController {
         super.viewDidLoad()
         
         /// temp
-        emailField.text = "tal@gmail.com"
-        passwordField.text = "123456"
-        firstNameField.text = "Tal"
-        lastNameField.text = "Zemah"
-        paymentPerHourField.text = "75.5"
+//        emailField.text = "tal@gmail.com"
+//        passwordField.text = "123456"
+//        firstNameField.text = "Tal"
+//        lastNameField.text = "Zemah"
+//        paymentPerHourField.text = "75.5"
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,7 +122,10 @@ class AddWorkerViewController: UIViewController {
     func signInAgain(){
         
         // Signin admin again
-        Auth.auth().signIn(withEmail: "talzemah1@gmail.com", password: "123456", completion: { (user, error) in
+        let defaults = UserDefaults.standard
+        let pass = defaults.object(forKey: "EmployerPass") as? String ?? ""
+        
+        Auth.auth().signIn(withEmail: "talzemah1@gmail.com", password: pass, completion: { (user, error) in
             
             self.view.hideToastActivity()
 

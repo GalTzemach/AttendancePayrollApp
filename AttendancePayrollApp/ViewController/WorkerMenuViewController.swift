@@ -146,52 +146,98 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
             }
             
             else {
-                // Change button state.
-                self.StartStopBtn.setTitle("Stop", for: .normal)
-                self.StartStopBtn.backgroundColor = UIColor.red
-                self.isStartBtn = false
                 
-                // Start timer
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
                 
-                // Insert Start time to DB.
-                
-                // Get current date
-                let date = Date()
-                let calendar = Calendar.current
-                let components = calendar.dateComponents([.year, .month, .day], from: date)
-                let year =  components.year
-                let month = components.month
-                let day = components.day
-                
-                // Add start day
-                db.collection("workers").document((Auth.auth().currentUser?.uid)!).collection("paychecks").document("\(year!) "+"\(month!)").collection("days").document("\(day!)").setData(["start" : FieldValue.serverTimestamp()], options: SetOptions.merge()) { (error) in
-                    
-                    self.view.hideToastActivity()
-
-                    if let err = error{
+                var bid = ""
+                db.document("allUsers/\((Auth.auth().currentUser?.uid)!)").getDocument { (doc, err) in
+                    if let err = err{
                         print(err.localizedDescription)
                     }
-                        
                     else{
-                        db.collection("workers").document((Auth.auth().currentUser?.uid)!).collection("paychecks").document("\(year!) "+"\(month!)").setData(["isClose": false], completion: { (err) in
-                            if let err = err{
-                                print(err.localizedDescription)
+                        for d in (doc?.data())!{
+                            if d.key == "businessId"{
+                                bid = d.value as! String
+                                
+                                db.collection("allUsers").whereField("isEmployer", isEqualTo: true).whereField("businessId", isEqualTo: bid).getDocuments { (docs, err) in
+                                        
+                                        self.view.hideToastActivity()
+
+                                    if let err = err{
+                                        print(err.localizedDescription)
+                                        self.view.makeToast("Getting data failed, try again!", duration: 1.5, position: .center)
+
+                                    }
+                                    else{
+                                        for doc in (docs?.documents)!{
+                                            for d in doc.data(){
+                                                if d.key == "location"{
+                                                    
+                                                    let location = d.value as! NSObject
+                                                    let workplaceLocation = CLLocation(latitude: location.value(forKey: "lati") as! CLLocationDegrees, longitude: location.value(forKey: "long") as! CLLocationDegrees)
+                                                    
+                                                    let distance = workplaceLocation.distance(from: self.userLocation)
+                                                    print("workplaceLocation = \(workplaceLocation)")
+                                                    print("userLocation = \(self.userLocation.coordinate)")
+                                                    
+                                                    print("distance = \(distance)")
+                                                    
+                                                    if distance < 500 {
+                                                        
+                                                        // Change button state.
+                                                        self.StartStopBtn.setTitle("Stop", for: .normal)
+                                                        self.StartStopBtn.backgroundColor = UIColor.red
+                                                        self.isStartBtn = false
+                                                        
+                                                        // Start timer
+                                                        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimer), userInfo: nil, repeats: true)
+                                                        
+                                                        // Insert Start time to DB.
+                                                        
+                                                        // Get current date
+                                                        let date = Date()
+                                                        let calendar = Calendar.current
+                                                        let components = calendar.dateComponents([.year, .month, .day], from: date)
+                                                        let year =  components.year
+                                                        let month = components.month
+                                                        let day = components.day
+                                                        
+                                                        // Add start day
+                                                        db.collection("workers").document((Auth.auth().currentUser?.uid)!).collection("paychecks").document("\(year!) "+"\(month!)").collection("days").document("\(day!)").setData(["start" : FieldValue.serverTimestamp()], options: SetOptions.merge()) { (error) in
+                                                            
+                                                            self.view.hideToastActivity()
+                                                            
+                                                            if let err = error{
+                                                                print(err.localizedDescription)
+                                                            }
+                                                                
+                                                            else{
+                                                                db.collection("workers").document((Auth.auth().currentUser?.uid)!).collection("paychecks").document("\(year!) "+"\(month!)").setData(["isClose": false], completion: { (err) in
+                                                                    if let err = err{
+                                                                        print(err.localizedDescription)
+                                                                    }
+                                                                    else{
+                                                                        self.view.makeToast("Shift starting...", duration: 1.5, position: .center)
+                                                                    }
+                                                                })
+                                                            }
+                                                        }
+                                                    } else {
+                                                        self.view.makeToast("You must be in your workplace to start a shift!", duration: 1.5, position: .center)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                break
                             }
-                            else{
-                                print("okkkkkkkkk")
-                                self.view.makeToast("Shift starting...", duration: 1.5, position: .center)
-                            }
-                        })
+                        }
                     }
                 }
-                
             }
-            
-            
-
         }
     }
+   
     
     func getWorkplaceLocation() -> CLLocation {
         /// Get WorkPlace location from DB.

@@ -137,6 +137,9 @@ class HomeViewController: UIViewController {
 
                         if elm.value as! Bool == true {
                             // Employer mode.
+                            let defaults = UserDefaults.standard
+                            defaults.set(self.passwordField.text!, forKey: "EmployerPass")
+                            
                             let EmployerMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "EmployerMenuVC") as! EmployerMenuViewController
                             self.navigationController?.pushViewController(EmployerMenuVC,animated: true)
                             
