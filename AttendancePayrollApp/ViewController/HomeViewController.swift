@@ -23,10 +23,6 @@ class HomeViewController: UIViewController {
         if isConnect(){
             isEmployer()
         }
-        
-        /// delete
-        emailField.text = "tal1@gmail.com"
-        passwordField.text = "123456"
     }
     
     func isConnect() -> Bool{
@@ -64,12 +60,6 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        /// delete
-        emailField.text = "talzemah1@gmail.com"
-        passwordField.text = "123456"
     }
     
     override func didReceiveMemoryWarning() {

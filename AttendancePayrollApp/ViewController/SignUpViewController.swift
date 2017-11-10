@@ -25,13 +25,6 @@ class SignUpViewController: UIViewController, DataReadyDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /// delete
-        emailField.text = "talzemah1@gmail.com"
-        passwordField.text = "123456"
-        firstNameField.text = "Tal"
-        lastNameField.text = "Zemah"
-        businessNameField.text = "TalZemahPlace"
 
     }
 

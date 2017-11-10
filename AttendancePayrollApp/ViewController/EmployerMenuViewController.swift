@@ -48,7 +48,6 @@ class EmployerMenuViewController: UIViewController {
         self.view.makeToastActivity(.center)
         
         // Retrieve all the names of employees who have a closed paycheck/s
-        
         // Get all workers
         db.collection("workers").getDocuments() { (querySnapshot, err) in
             
@@ -80,7 +79,6 @@ class EmployerMenuViewController: UIViewController {
                             
                             if (querySnapshot?.documents.count)! > 0 {
                                 // Add uid to the set
-                                //uidSet.insert(document.documentID)
                                 self.uidArr.append(document.documentID)
                             }
                         }
@@ -158,8 +156,6 @@ class EmployerMenuViewController: UIViewController {
     @IBAction func UnconfirmedPayrollClicked(_ sender: Any) {
         unconfirmedMode = true
         getAllPayrollHistoryFromDB(isClose: false)
-
-        ///performSegue(withIdentifier: "fromEmployerMenuToPayrollHistorySegue", sender: self)
     }
     
 

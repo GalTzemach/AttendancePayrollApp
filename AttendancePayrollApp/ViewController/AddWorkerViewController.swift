@@ -24,12 +24,6 @@ class AddWorkerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /// temp
-//        emailField.text = "tal@gmail.com"
-//        passwordField.text = "123456"
-//        firstNameField.text = "Tal"
-//        lastNameField.text = "Zemah"
-//        paymentPerHourField.text = "75.5"
     }
 
     override func didReceiveMemoryWarning() {

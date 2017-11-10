@@ -37,7 +37,6 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
     {
         let location = locations[0]
         userLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        /// print(userLocation.coordinate)
     }
     
     override func viewDidLoad() {
@@ -88,7 +87,7 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
         let day = components.day
         let yearMonth: String = "\(year!) "+"\(month!)"
         
-        /// Get is start info from DB.
+        // Get is start info from DB.
         db.document("workers/\((Auth.auth().currentUser?.uid)!)/paychecks/\(yearMonth)/days/\(day!)").getDocument { (doc, err) in
             
             self.view.hideToastActivity()
@@ -237,39 +236,6 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-   
-    
-    func getWorkplaceLocation() -> CLLocation {
-        /// Get WorkPlace location from DB.
-        
-        // Apple campus location
-        let WorkplaceLatitude = 37.331811
-        let WorkplaceLongitude = -122.031201
-        let workplaceLocation:CLLocation = CLLocation(latitude: WorkplaceLatitude, longitude: WorkplaceLongitude)
-
-        return workplaceLocation
-    }
-    
-    func insertStartTimeToDB() -> Bool {
-        /// date & time.
-        let date = Date()
-        let calendar = Calendar.current
-        
-        // Date
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        
-        //Time
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
-        let second = calendar.component(.second, from: date)
-
-        print("\(day)/\(month)/\(year)  \(hour):\(minute):\(second)")
-
-        /// insert to DB
-        return true
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromWorkerMenuToNamePayrollHistorySegue" {
@@ -408,7 +374,6 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
                 self.view.makeToast("There is no data to show", duration: 1.5, position: .center)
             }
         }
-        
     }
     
     // Actions - (buttons clicked)
@@ -465,5 +430,6 @@ class WorkerMenuViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
     
 }

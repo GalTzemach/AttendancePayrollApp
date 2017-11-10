@@ -50,7 +50,6 @@ class NamePayrollHistoryViewController: UIViewController, UITableViewDataSource,
         tableView.reloadData()
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fromNamePayrollToDatePaycheckSegue") {
             let destinationVc = segue.destination as! DatePaycheckViewController

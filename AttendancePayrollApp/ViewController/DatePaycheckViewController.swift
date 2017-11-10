@@ -20,9 +20,6 @@ class DatePaycheckViewController: UIViewController, UITableViewDataSource, UITab
     weak var delegate: SendDataBackDelegate? = nil
     
     var dayArr = [String]()
-
-    //let dayArr = ["01  00:00:00 - 22:22:22", "02  00:00:00 - 11:11:11", "03  00:00:00 - 33:33:33"]
-    
     var uid = ""
     var date = ""
     var unconfirmedMode = false
@@ -50,7 +47,6 @@ class DatePaycheckViewController: UIViewController, UITableViewDataSource, UITab
         if !unconfirmedMode {
             ConfirmPaycheckBtn.isHidden = true
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

@@ -35,7 +35,6 @@ class PayrollHistoryViewController: UIViewController, UITableViewDelegate, UITab
   
         currentIndex = indexPath.row
         getPaychecks(isClose: !unconfirmedMode)
-        /// performSegue(withIdentifier: "fromPayrollToWorkerPayrollSegue", sender: self)
     }
     
     func dataIsReady(info: String) {
